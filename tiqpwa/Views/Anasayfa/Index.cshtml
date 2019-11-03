@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.AspNetCore.Http;
+
+<div class="col s6 m6" style="margin-top:70px">
+    <p style="font-family: 'Roboto Condensed', sans-serif">Hoşgeldiniz,<b> @Context.Session.GetString("Kullanıcı_Adı")</b></p>
+</div>
+
+<div class="col s12" style="margin-top:30px">
+    <ul class="collapsible">
+        <li>
+            <a href="@Url.Action("DevamEdenListe", "Anasayfa")">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>Devam Eden İşler</b>
+                    <span class="badge" style="color:blueviolet"><b style="color:red">1</b></span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("BeklemeListe", "Anasayfa")">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>Beklemede Olan İşler</b>
+                    <span class="badge"><b style="color:red">4</b></span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("TamamlananListe", "Anasayfa")">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>Tamamlanan İşler</b>
+                    <span class="badge"><b style="color:red">6</b></span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("IptalOlanListe", "Anasayfa")">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>İptal Olan İşler</b>
+                    <span class="badge"><b style="color:red">2</b></span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Takvim", "Anasayfa")">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>Takvim</b>
+                    <span class="badge"><b style="color:red">9</b></span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="col s12 center-align">
+    <a class="waves-effect waves-light btn lighten-2" style="color:#096669" href="@Url.Action("Index","Giris")"><span style="color:white">Çıkış Yap</span></a>
+</div>

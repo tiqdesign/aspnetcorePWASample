@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "IptalOlanListe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col s12" style="margin-top:70px">
+
+    <ul class="collection with-header">
+        <li>
+            <div class="collection-header center-align">
+                <b style="font-size:18px">İPTAL OLAN İŞLER </b>
+                <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-2 secondary-content"><b style="color:white"> Geri </b></a>
+            </div>
+            <!--listenin her bir elemanı tıklanabilir olacak ve ayrıntılarını verecek.-->
+            <div class="collection-item">
+                <p><b> Proje Adı : A Projesi </b></p>
+                <p><b> Tarih : 01.01.2020  </b></p>
+                <p><b> İptal Olma Tarihi : 01.01.2020</b></p>
+                <p><b> Konu  : Devreye Alma </b></p>
+                <p><b> İlgili Personel : Enes Zeybekoğlu </b></p>
+                <a class="waves-effect waves-light btn-small lime lighten-2 secondary-content" style="margin-top:-10px" href="@Url.Action("DevamEdenListe","Anasayfa")"><b>Güncelle</b></a>
+                <br />
+            </div>
+
+            <!--Burada foreach içerisinde brojeler dönecek kendi kendine olusacak-->
+            <div class="collection-item">
+                <p><b> Proje Adı : B Projesi </b></p>
+                <p><b> Tarih : 01.01.2020  </b></p>
+                <p><b> İptal Olma Tarihi : 01.01.2020</b></p>
+                <p><b> Konu  : Devreye Alma </b></p>
+                <p><b> İlgili Personel : Enes Zeybekoğlu </b></p>
+                <a class="waves-effect waves-light btn-small lime lighten-2 secondary-content" style="margin-top:-10px" href="@Url.Action("DevamEdenListe","Anasayfa")"><b>Güncelle</b></a>
+                <br />
+            </div>
+
+
+            <div class="collection-item">
+                <p><b> Proje Adı : C Projesi </b></p>
+                <p><b> Tarih : 01.01.2020  </b></p>
+                <p><b> İptal Olma Tarihi : 01.01.2020</b></p>
+                <p><b> Konu  : Devreye Alma </b></p>
+                <p><b> İlgili Personel : Enes Zeybekoğlu </b></p>
+                <a class="waves-effect waves-light btn-small lime lighten-2 secondary-content" style="margin-top:-10px" href="@Url.Action("DevamEdenListe","Anasayfa")"><b>Güncelle</b></a>
+                <br />
+            </div>
+
+
+            <div class="collection-item">
+                <p><b> Proje Adı : D Projesi </b></p>
+                <p><b> Tarih : 01.01.2020  </b></p>
+                <p><b> İptal Olma Tarihi : 01.01.2020</b></p>
+                <p><b> Konu  : Devreye Alma </b></p>
+                <p><b> İlgili Personel : Enes Zeybekoğlu </b></p>
+                <a class="waves-effect waves-light btn-small lime lighten-2 secondary-content" style="margin-top:-10px" href="@Url.Action("DevamEdenListe","Anasayfa")"><b>Güncelle</b></a>
+                <br />
+            </div>
+
+        </li>
+    </ul>
+</div>
