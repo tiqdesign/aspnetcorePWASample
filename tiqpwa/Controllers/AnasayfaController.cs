@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using tiqpwa.Models;
 
 namespace tiqpwa.Controllers
 {
@@ -18,10 +19,24 @@ namespace tiqpwa.Controllers
             return View();
         }
 
+        public IActionResult DevamEdenAyrinti(int id)
+        {
+            //bu id ye göre içeriği getir.
+            DevamEden de = new DevamEden();
+            de.ID = 2;
+            de.Ilgili_Personel = "asdads";
+            de.Konu = "asdas";
+            de.Proje_Adi = "asdasd";
+            de.Tarih = "asdasd";
+            
+            return View(de);
+        }
+
         public IActionResult BeklemeListe()
         {
             return View();
         }
+
         public IActionResult TamamlananListe()
         {
             return View();
@@ -32,6 +47,11 @@ namespace tiqpwa.Controllers
         }
 
         public IActionResult Takvim()
+        {
+            return View();
+        }
+        
+        public IActionResult YeniIsKaydi()
         {
             return View();
         }

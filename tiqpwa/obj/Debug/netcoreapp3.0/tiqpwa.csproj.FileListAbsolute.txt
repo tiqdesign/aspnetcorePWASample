@@ -139,3 +139,5 @@ C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\An
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\TamamlananListe.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\IptalOlanListe.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\Takvim.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\YeniIsKaydi.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\DevamEdenAyrinti.cshtml.g.cs
