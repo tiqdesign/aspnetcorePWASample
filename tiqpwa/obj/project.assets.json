@@ -3248,6 +3248,63 @@
         "runtime": {
           "lib/netstandard2.0/WebEssentials.AspNetCore.Pwa.dll": {}
         }
+      },
+      "tiqpwa.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "tiqpwa.Core": "1.0.0",
+          "tiqpwa.DataAccess": "1.0.0",
+          "tiqpwa.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/tiqpwa.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/tiqpwa.Business.dll": {}
+        }
+      },
+      "tiqpwa.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.0.0"
+        },
+        "compile": {
+          "bin/placeholder/tiqpwa.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/tiqpwa.Core.dll": {}
+        }
+      },
+      "tiqpwa.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
+          "tiqpwa.Core": "1.0.0",
+          "tiqpwa.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/tiqpwa.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/tiqpwa.DataAccess.dll": {}
+        }
+      },
+      "tiqpwa.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "tiqpwa.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/tiqpwa.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/tiqpwa.Entities.dll": {}
+        }
       }
     }
   },
@@ -9651,6 +9708,26 @@
         "webessentials.aspnetcore.pwa.1.0.59.nupkg.sha512",
         "webessentials.aspnetcore.pwa.nuspec"
       ]
+    },
+    "tiqpwa.Business/1.0.0": {
+      "type": "project",
+      "path": "../tiqpwa.Business/tiqpwa.Business.csproj",
+      "msbuildProject": "../tiqpwa.Business/tiqpwa.Business.csproj"
+    },
+    "tiqpwa.Core/1.0.0": {
+      "type": "project",
+      "path": "../tiqpwa.Core/tiqpwa.Core.csproj",
+      "msbuildProject": "../tiqpwa.Core/tiqpwa.Core.csproj"
+    },
+    "tiqpwa.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../tiqpwa.DataAccess/tiqpwa.DataAccess.csproj",
+      "msbuildProject": "../tiqpwa.DataAccess/tiqpwa.DataAccess.csproj"
+    },
+    "tiqpwa.Entities/1.0.0": {
+      "type": "project",
+      "path": "../tiqpwa.Entities/tiqpwa.Entities.csproj",
+      "msbuildProject": "../tiqpwa.Entities/tiqpwa.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9659,7 +9736,10 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0",
-      "WebEssentials.AspNetCore.PWA >= 1.0.59"
+      "WebEssentials.AspNetCore.PWA >= 1.0.59",
+      "tiqpwa.Business >= 1.0.0",
+      "tiqpwa.Core >= 1.0.0",
+      "tiqpwa.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9692,7 +9772,17 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj": {
+              "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj"
+            },
+            "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+              "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj"
+            },
+            "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj": {
+              "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

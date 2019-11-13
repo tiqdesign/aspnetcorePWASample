@@ -15,4 +15,10 @@
     <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.59" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\tiqpwa.Business\tiqpwa.Business.csproj" />
+    <ProjectReference Include="..\tiqpwa.Core\tiqpwa.Core.csproj" />
+    <ProjectReference Include="..\tiqpwa.Entities\tiqpwa.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

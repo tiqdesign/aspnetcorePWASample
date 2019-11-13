@@ -4,6 +4,267 @@
     "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa\\tiqpwa.csproj": {}
   },
   "projects": {
+    "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj",
+        "projectName": "tiqpwa.Business",
+        "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj",
+        "packagesPath": "C:\\Users\\tar24\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tar24\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj"
+              },
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\tiqpwa.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\tiqpwa.DataAccess.csproj"
+              },
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj",
+        "projectName": "tiqpwa.Core",
+        "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj",
+        "packagesPath": "C:\\Users\\tar24\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tar24\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\tiqpwa.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\tiqpwa.DataAccess.csproj",
+        "projectName": "tiqpwa.DataAccess",
+        "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\tiqpwa.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\tar24\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tar24\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj"
+              },
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj",
+        "projectName": "tiqpwa.Entities",
+        "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj",
+        "packagesPath": "C:\\Users\\tar24\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tar24\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa\\tiqpwa.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -30,7 +291,17 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Business\\tiqpwa.Business.csproj"
+              },
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Core\\tiqpwa.Core.csproj"
+              },
+              "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj": {
+                "projectPath": "C:\\Users\\tar24\\source\\repos\\tiqpwa\\tiqpwa.Entities\\tiqpwa.Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using tiqpwa.Business.Abstract;
+using tiqpwa.Business.Concrete;
+using tiqpwa.DataAccess.Abstract;
+using tiqpwa.DataAccess.Concrete.EntityFramework;
 
 namespace tiqpwa
 {
@@ -24,9 +28,11 @@ namespace tiqpwa
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddProgressiveWebApp();
+            services.AddScoped<IKullaniciService, KullaniciManager>();
+            services.AddScoped<IKullaniciDataAccessLayer, EfKullaniciDataAccessLayer>();
             services.AddControllersWithViews();
             services.AddSession();
-           
+        
         }
 
        

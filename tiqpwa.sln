@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tiqpwa", "tiqpwa\tiqpwa.csproj", "{4903BF5B-E5B4-4367-82CF-AF8EAB4CE455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tiqpwa", "tiqpwa\tiqpwa.csproj", "{4903BF5B-E5B4-4367-82CF-AF8EAB4CE455}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tiqpwa.DataAccess", "tiqpwa.DataAccess\tiqpwa.DataAccess.csproj", "{ECDDD434-D431-4D9D-8132-1DB0AD60033F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tiqpwa.Business", "tiqpwa.Business\tiqpwa.Business.csproj", "{7B57F80E-C06F-429D-AC10-3EE2EE7CC303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tiqpwa.Core", "tiqpwa.Core\tiqpwa.Core.csproj", "{0ED671D6-A79B-4454-8EF6-59FEC68D4EB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tiqpwa.Entities", "tiqpwa.Entities\tiqpwa.Entities.csproj", "{7FA3D281-65F8-419F-A09F-F8932D349C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{4903BF5B-E5B4-4367-82CF-AF8EAB4CE455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4903BF5B-E5B4-4367-82CF-AF8EAB4CE455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4903BF5B-E5B4-4367-82CF-AF8EAB4CE455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDDD434-D431-4D9D-8132-1DB0AD60033F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDDD434-D431-4D9D-8132-1DB0AD60033F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDDD434-D431-4D9D-8132-1DB0AD60033F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDDD434-D431-4D9D-8132-1DB0AD60033F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B57F80E-C06F-429D-AC10-3EE2EE7CC303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B57F80E-C06F-429D-AC10-3EE2EE7CC303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B57F80E-C06F-429D-AC10-3EE2EE7CC303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B57F80E-C06F-429D-AC10-3EE2EE7CC303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED671D6-A79B-4454-8EF6-59FEC68D4EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED671D6-A79B-4454-8EF6-59FEC68D4EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED671D6-A79B-4454-8EF6-59FEC68D4EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED671D6-A79B-4454-8EF6-59FEC68D4EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA3D281-65F8-419F-A09F-F8932D349C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA3D281-65F8-419F-A09F-F8932D349C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA3D281-65F8-419F-A09F-F8932D349C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA3D281-65F8-419F-A09F-F8932D349C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

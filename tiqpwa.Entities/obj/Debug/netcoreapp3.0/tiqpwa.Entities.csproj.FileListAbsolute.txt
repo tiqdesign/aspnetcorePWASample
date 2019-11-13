@@ -1,0 +1,11 @@
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\bin\Debug\netcoreapp3.0\tiqpwa.Entities.deps.json
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\bin\Debug\netcoreapp3.0\tiqpwa.Entities.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\bin\Debug\netcoreapp3.0\tiqpwa.Entities.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\bin\Debug\netcoreapp3.0\tiqpwa.Core.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\bin\Debug\netcoreapp3.0\tiqpwa.Core.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.csprojAssemblyReference.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.AssemblyInfoInputs.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.AssemblyInfo.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.csproj.CopyComplete
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Entities\obj\Debug\netcoreapp3.0\tiqpwa.Entities.pdb

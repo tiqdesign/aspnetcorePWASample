@@ -1,0 +1,15 @@
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Business.deps.json
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Business.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Business.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Core.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.DataAccess.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Entities.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Core.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.DataAccess.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\bin\Debug\netcoreapp3.0\tiqpwa.Entities.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.csprojAssemblyReference.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.AssemblyInfoInputs.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.AssemblyInfo.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.csproj.CopyComplete
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Business\obj\Debug\netcoreapp3.0\tiqpwa.Business.pdb

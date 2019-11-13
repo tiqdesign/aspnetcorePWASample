@@ -5,11 +5,16 @@
 }
 @using Microsoft.AspNetCore.Http;
 
-<div class="col s6 m6" style="margin-top:70px">
-    <p style="font-family: 'Roboto Condensed', sans-serif">Hoşgeldiniz,<b> @Context.Session.GetString("Kullanıcı_Adı")</b></p>
+<div class="center" style="margin-top:30px">
+    <img src="~/karaman.png" class="responsive-img"/>
 </div>
 
-<div class="col s12" style="margin-top:30px">
+
+<div class="col s6 m6" style="margin-top:20px">
+    <p><b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;"> @Context.Session.GetString("Kullanıcı_Adı") </b> </p>
+</div>
+
+<div class="col s12" style="margin-top:10px">
     <ul class="collapsible">
         <li>
             <a href="@Url.Action("YeniIsKaydi", "Anasayfa")">
@@ -69,5 +74,5 @@
 </div>
 
 <div class="col s12 center-align">
-    <a class="waves-effect waves-light btn lighten-2" style="color:#096669" href="@Url.Action("Index","Giris")"><span style="color:white">Çıkış Yap</span></a>
+    <a class="waves-effect waves-light btn grey darken-3" href="@Url.Action("Index","Giris")"><span style="color:white">Çıkış Yap</span></a>
 </div>

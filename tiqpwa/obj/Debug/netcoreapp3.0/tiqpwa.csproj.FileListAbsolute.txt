@@ -132,7 +132,6 @@ C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\NWebsec.AspNet
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\NWebsec.AspNetCore.Mvc.dll
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\NWebsec.AspNetCore.Mvc.TagHelpers.dll
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\WebEssentials.AspNetCore.Pwa.dll
-C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\tiqpwa.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\tiqpwa.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\DevamEdenListe.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\BeklemeListe.cshtml.g.cs
@@ -141,3 +140,12 @@ C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\An
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\Takvim.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\YeniIsKaydi.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\DevamEdenAyrinti.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Business.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Core.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.DataAccess.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Entities.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Business.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Core.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.Entities.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\tiqpwa.DataAccess.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\tiqpwa.MvcApplicationPartsAssemblyInfo.cs

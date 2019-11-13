@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\tiqpwa.Core\tiqpwa.Core.csproj" />
+    <ProjectReference Include="..\tiqpwa.DataAccess\tiqpwa.DataAccess.csproj" />
+    <ProjectReference Include="..\tiqpwa.Entities\tiqpwa.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

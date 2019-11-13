@@ -29,6 +29,9 @@
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
           "WebEssentials.AspNetCore.PWA": "1.0.59",
+          "tiqpwa.Business": "1.0.0",
+          "tiqpwa.Core": "1.0.0",
+          "tiqpwa.Entities": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -2448,6 +2451,55 @@
         },
         "compile": {
           "lib/netstandard2.0/WebEssentials.AspNetCore.Pwa.dll": {}
+        }
+      },
+      "tiqpwa.Business/1.0.0": {
+        "dependencies": {
+          "tiqpwa.Core": "1.0.0",
+          "tiqpwa.DataAccess": "1.0.0",
+          "tiqpwa.Entities": "1.0.0"
+        },
+        "runtime": {
+          "tiqpwa.Business.dll": {}
+        },
+        "compile": {
+          "tiqpwa.Business.dll": {}
+        }
+      },
+      "tiqpwa.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.0.0"
+        },
+        "runtime": {
+          "tiqpwa.Core.dll": {}
+        },
+        "compile": {
+          "tiqpwa.Core.dll": {}
+        }
+      },
+      "tiqpwa.DataAccess/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
+          "tiqpwa.Core": "1.0.0",
+          "tiqpwa.Entities": "1.0.0"
+        },
+        "runtime": {
+          "tiqpwa.DataAccess.dll": {}
+        },
+        "compile": {
+          "tiqpwa.DataAccess.dll": {}
+        }
+      },
+      "tiqpwa.Entities/1.0.0": {
+        "dependencies": {
+          "tiqpwa.Core": "1.0.0"
+        },
+        "runtime": {
+          "tiqpwa.Entities.dll": {}
+        },
+        "compile": {
+          "tiqpwa.Entities.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery.Reference/3.0.0.0": {
@@ -5591,6 +5643,26 @@
       "sha512": "sha512-WhLW8uLGxuxl0586alFrwCT/QTvR3OJoTo2U3LS//fulL59G4SubyMKlUdN1bHBTs0AV9CpwEuRg/I6zSKxRPw==",
       "path": "webessentials.aspnetcore.pwa/1.0.59",
       "hashPath": "webessentials.aspnetcore.pwa.1.0.59.nupkg.sha512"
+    },
+    "tiqpwa.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "tiqpwa.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "tiqpwa.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "tiqpwa.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery.Reference/3.0.0.0": {
       "type": "referenceassembly",

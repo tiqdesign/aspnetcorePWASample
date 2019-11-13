@@ -4,45 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model Kullanici;
-    <style>
-        button {
-            color: #096669;
-        }
-    </style>
+@model tiqpwa.Entities.Concrete.Kullanici;
 
-    <div class="container">
-        <div class="col s12 m4 l4 xl4 center-align" style="margin-top:30px">
-            <div class="card hoverable">
-                <div class="card-image col s12 m4 l4 xl4" style="padding:30px">
-                    <img src="~/karaman.png" class="responsive-img"/>
-                </div>
-                <div class="card-content" style="padding-top:20px">
-                    <p class="cart-title flow-text" style="color:black"> KARAMAN TEKNOLOJİ İŞ TAKİP SİSTEMİ </p>
-                    <form class="col s12" asp-action="Index" style="margin-top:50px">
-                        <div class="row">
-
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">person_outline</i>
-                                <input id="kullanici_adi" type="text" asp-for="KullaniciAdi" class="validate">
-                                <label for="kullanici_adi">Kullanıcı Adı:</label>
-                            </div>
-
-                            <div class="input-field col s12 " style="padding-top:-15px;">
-                                <i class="material-icons prefix">lock_outline</i>
-                                <input id="kullanici_sifre" type="password" asp-for="Sifre" class="validate">
-                                <label for="kullanici_sifre">Şifre:</label>
-                            </div>
-
-                            <div class="col s12 center-align">
-                                <button class="waves-effect waves-light btn lighten-2" style="letter-spacing: .5px" type="submit" name="giris_yap">
-                                    <p style="color:white">Giriş Yap</p>
-                                </button>
-                            </div>
+<div class="center" style="margin-top: 80px">
+    <img src="~/karaman.png" class="responsive-img" />
+</div>
+<div class="container">
+    <div class="col s12 m4 l4 xl4 center-align" style="margin-top:20px">
+        <div class="card hoverable">
+            <div class="card-content" style="padding-top: 20px">
+                <p class="cart-title flow-text" style="color:#424242"> KARAMAN TEKNOLOJİ <br/> - İŞ TAKİP SİSTEMİ - </p>
+                <hr style="color:#4fc3f7"/>
+                <form class="col s12" asp-action="Index" asp-validation-summary="all" style="margin-top:25px">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">person_outline</i>
+                            <input id="kullanici_adi" type="text" asp-for="KullaniciGiris" class="validate">
+                            <label for="kullanici_adi">Kullanıcı Adı:</label>
                         </div>
-                    </form>
-                </div>
+
+                        <div class="input-field col s12" style="padding-top:-15px;">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <input id="kullanici_sifre" type="password" asp-for="KullaniciSifre" class="validate">
+                            <label for="kullanici_sifre">Şifre:</label>
+                        </div>
+
+                        <div class="col s12 center-align">
+                            <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap">
+                                <p style="color:white">Giriş Yap</p>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
     </div>
+
+</div>

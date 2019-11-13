@@ -8,178 +8,118 @@
         $('select').formSelect();
     });
 </script>
-<style>
-    p b {
-        font-size: 12px;
-        color: #26A69A;
-    }
-    /* label color */
-    .input-field label {
-        font-size: 18px;
-        margin-left: 5px;
-        color: #26A69A;
-    }
-
-    .optionparts {
-        font-size: 12px;
-        font-style: italic;
-        color: #26A69A;
-    }
-    /* label focus color */
-    .input-field input[type=text]:focus + label {
-        color: #26A69A;
-    }
-    /* label underline focus color */
-    .input-field input[type=text]:focus {
-        border-bottom: 1px solid #26A69A;
-        box-shadow: 0 1px 0 0 #26A69A;
-    }
-    /* valid color */
-    .input-field input[type=text] {
-        border-bottom: 1px solid #26A69A;
-        box-shadow: 0 1px 0 0 #26A69A;
-    }
-    /* invalid color */
-    .input-field input[type=text] {
-        border-bottom: 1px solid #26A69A;
-        box-shadow: 0 1px 0 0 #26A69A;
-    }
-    /* icon prefix focus color */
-    .input-field {
-        color: #26A69A;
-    }
-</style>
 
 <!--<input type="file" accept="image/x-png,image/jpeg,image/gif" />-->
-
-<div class="secondary-content">
-    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-2 secondary-content"><b style="color:white"> Geri </b></a>
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px"><b style="color:white"> Geri </b></a>
 </div>
-<div class="center-align" style="margin-top:20px">
+<div class="card-title center">
     <p><b style="font-size:20px">Yeni İş Kaydı</b></p>
 </div>
-<form class="col s12">
-    <ul class="collection">
-        <li class="collection-item">
+<div class="card">
+    <div class="card-content">
+        <form class="col s12">
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
                     <label for="proje_adi">Proje Adı :</label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
                     <label for="proje_adi">Yetkili Kişi :</label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
                     <label for="proje_adi">Yetkili Telefon :</label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
                     <label for="proje_adi"> Proje Adı :</label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
-                    <label for="proje_adi" style="margin-left:5px">Lokasyon : </label>
+                    <label for="proje_adi">Lokasyon : </label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
-                    <label for="proje_adi" style="margin-left:5px">Tarih : </label>
+                    <label for="proje_adi">Tarih : </label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
-                    <label for="proje_adi" style="margin-left:5px">Saat : </label>
+                    <label for="proje_adi">Saat : </label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="input-field col s12">
                 <select>
-                    <option value="" ></option>
+                    <option value="" disabled selected>Lütfen birini seçiniz</option>
                     <option value="1">Devreye Alma</option>
                     <option value="2">Test</option>
                     <option value="3">Montaj</option>
                     <option value="4">Süpervizörlük</option>
                     <option value="5">İşçilik</option>
                 </select>
-                <label style=" font-size:18px;
-                               margin-left: 5px;
-                               color: #26A69A;">
-                İşin Konusu
+                <label style="margin-left:-12px">
+                    İşin Konusu :
                 </label>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
-                    <label for="proje_adi" style="margin-left:5px"> İşin Açıklaması :</label>
+                    <label for="proje_adi"> İşin Açıklaması :</label>
                 </div>
             </div>
-        </li>
-        <li class="collection-item">
+
             <div class="input-field col s12">
                 <select>
-                    <option value=""></option>
+                    <option value="" disabled selected>Lütfen birini seçiniz</option>
                     <option value="1">Ücretli</option>
                     <option value="2">Ücretsiz</option>
                     <option value="3">Bakım</option>
                     <option value="4">Sözleşme Dahilinde</option>
                 </select>
-                <label style=" font-size:18px;
-                               margin-left: 5px;
-                               color: #26A69A;">
-                    İşin Cinsi
+                <label style="margin-left:-12px">
+                    İşin Cinsi :
                 </label>
             </div>
-        </li>
 
-        <li class="collection-item">
             <div class="input-field col s12">
                 <select multiple>
-                    <option value=""></option>
+                    <option value="" disabled>Lütfen birini seçiniz</option>
                     <option value="1">Eyüp Çelik</option>
                     <option value="2">Enes Zeybekoğlu</option>
                     <option value="3">M. Ali Karaman</option>
                     <option value="4">Mesut Karaman</option>
                     <option value="5">Yüksel Tunç</option>
                 </select>
-                <label style=" font-size:18px;
-                               margin-left: 5px;
-                               color: #26A69A;">
-                    İlgili Personeller
+                <label style="margin-left:-12px">
+                    İlgili Personeller :
                 </label>
             </div>
-        </li>
 
-        <li class="collection-item">
-            <div class="row">
+            <div class="row" style="margin-left: 3px; margin-right:3px ">
                 <div class="file-field input-field">
-                    <div class="btn">
+                    <div class="btn-small">
                         <span>Fotoğraf Yükle</span>
                         <input type="file">
                     </div>
@@ -188,9 +128,10 @@
                     </div>
                 </div>
             </div>
-        </li>
-    </ul>
-</form>
-<div class="center-align">
-    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small green lighten-2 secondary-content"><b style="color:white"> Kaydet </b></a>
+            <div class="center-align">
+                <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small  grey darken-3"><b style="color: white"> Kaydet </b></a>
+            </div>
+        </form>
+    </div>
 </div>
+
