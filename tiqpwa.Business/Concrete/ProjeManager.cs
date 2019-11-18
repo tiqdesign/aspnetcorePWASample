@@ -15,12 +15,12 @@ namespace tiqpwa.Business.Concrete
         {
             _projeDataAccessLayer = projeDataAccessLayer;
         }
-        public List<Proje> ProjeleriGetir()
+        public List<Proje> ProjeleriGetir(int KullaniciID)
         {
-            return _projeDataAccessLayer.GetList();
+            return _projeDataAccessLayer.GetList(p=> p.YetkiliID == KullaniciID);
         }
         //bu kısımda düzeltilmesi gereken yerler var.
-        public Proje ProjeyiGetir(int KullaniciID, int ProjeID)
+        public Proje ProjeyiGetir(int ProjeID)
         {
             return _projeDataAccessLayer.Get(p => p.ProjeID == ProjeID);
         }

@@ -1,8 +1,10 @@
-﻿
+﻿@using Microsoft.VisualStudio.Web.CodeGeneration
+
 @{
     ViewData["Title"] = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model tiqpwa.Entities.Concrete.Proje
 <script>
     $(document).ready(function () {
         $('select').formSelect();
@@ -19,45 +21,44 @@
 </div>
 <div class="card">
     <div class="card-content">
-        <form class="col s12">
+        <form class="col s12" asp-action="YeniIsKaydi">
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="ProjeAdi" type="text">
                     <label for="proje_adi">Proje Adı :</label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="IlgiliPersonel" type="text">
                     <label for="proje_adi">Yetkili Kişi :</label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="YetkiliTelefon" type="text">
                     <label for="proje_adi">Yetkili Telefon :</label>
                 </div>
             </div>
-
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
-                    <label for="proje_adi"> Proje Adı :</label>
+                    <input id="proje_adi" asp-for="YetkiliID" type="text">
+                    <label for="proje_adi">Yetkili ID : </label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="Lokasyon" type="text">
                     <label for="proje_adi">Lokasyon : </label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="ProjeTarihi" type="text">
                     <label for="proje_adi">Tarih : </label>
                 </div>
             </div>
@@ -70,7 +71,7 @@
             </div>
 
             <div class="input-field col s12">
-                <select>
+                <select asp-for="IsinKonusu">
                     <option value="" disabled selected>Lütfen birini seçiniz</option>
                     <option value="1">Devreye Alma</option>
                     <option value="2">Test</option>
@@ -85,13 +86,13 @@
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
+                    <input id="proje_adi" asp-for="IsinAciklamasi" type="text">
                     <label for="proje_adi"> İşin Açıklaması :</label>
                 </div>
             </div>
 
             <div class="input-field col s12">
-                <select>
+                <select asp-for="IsinCinsi">
                     <option value="" disabled selected>Lütfen birini seçiniz</option>
                     <option value="1">Ücretli</option>
                     <option value="2">Ücretsiz</option>
@@ -128,8 +129,10 @@
                     </div>
                 </div>
             </div>
-            <div class="center-align">
-                <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small  grey darken-3"><b style="color: white"> Kaydet </b></a>
+            <div class="col s12 center-align">
+                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap">
+                    <p style="color:white">Kaydet</p>
+                </button>
             </div>
         </form>
     </div>

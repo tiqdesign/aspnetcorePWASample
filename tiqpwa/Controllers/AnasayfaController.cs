@@ -1,35 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net.Http;
+using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
+using tiqpwa.Business.Abstract;
+using tiqpwa.Entities.Concrete;
+using tiqpwa.ExtensionMethods;
 using tiqpwa.Models;
+using tiqpwa.ViewModels;
 
 namespace tiqpwa.Controllers
 {
     public class AnasayfaController : Controller
     {
+        private IProjeService _projeService;
+        private IIsinKonusuService _isinKonusuService;
+     
+        public static Kullanici kullanici;
+        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService, IKullaniciService kullaniciService)
+        {
+            _projeService = projeService;
+
+            _isinKonusuService = isinKonusuService;
+
+        }
         public IActionResult Index()
         {
+            KullaniciGetir();
             return View();
         }
 
         public IActionResult DevamEdenListe()
         {
-            return View();
+            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID);
+            var DevamEdenListe = new List<DevamEdenListeViewModel>();
+
+            foreach (var proje in projeler)
+            {
+                var item = new DevamEdenListeViewModel()
+                {
+                    ProjeAdi = proje.ProjeAdi,
+                    IlgiliPersonel = proje.IlgiliPersonel,
+                    Tarih = proje.ProjeTarihi,
+                    Konu = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
+                    ProjeId = proje.ProjeID
+                };
+                DevamEdenListe.Add(item);
+            }
+            return View(DevamEdenListe);
         }
 
         public IActionResult DevamEdenAyrinti(int id)
         {
-            //bu id ye göre içeriği getir.
-            DevamEden de = new DevamEden();
-            de.ID = 2;
-            de.Ilgili_Personel = "asdads";
-            de.Konu = "asdas";
-            de.Proje_Adi = "asdasd";
-            de.Tarih = "asdasd";
-            
-            return View(de);
+            var proje = _projeService.ProjeyiGetir(id);
+            return View(proje);
         }
 
         public IActionResult BeklemeListe()
@@ -41,6 +69,7 @@ namespace tiqpwa.Controllers
         {
             return View();
         }
+
         public IActionResult IptalOlanListe()
         {
             return View();
@@ -50,10 +79,32 @@ namespace tiqpwa.Controllers
         {
             return View();
         }
-        
+
+        [HttpGet]
         public IActionResult YeniIsKaydi()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult YeniIsKaydi(Proje p){
+            try
+            {
+                //elle verdik kendi artmalı
+                p.ProjeID = 6;
+                p.ProjeDurumu = 1;
+                _projeService.ProjeEkle(p);
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+
+        void KullaniciGetir()
+        {
+            kullanici = HttpContext.Session.GetObject<Kullanici>("KullanıcıObjesi");
         }
     }
 }

@@ -12,7 +12,9 @@ namespace tiqpwa.DataAccess.Concrete.EntityFramework
         {
              optionsBuilder.UseSqlServer(@"Server=TARIKKAYA\TARIKKAYA;Database=KaramanDB; Trusted_Connection=true");
         }
-
+        
         public DbSet<Kullanici> Kullanici { get; set; }
+        public DbSet<Proje> Proje { get; set; }
+        public DbSet<IsinKonusu> IsinKonusu { get; set; }
     }
 }

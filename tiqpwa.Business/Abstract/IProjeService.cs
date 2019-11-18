@@ -7,8 +7,8 @@ namespace tiqpwa.Business.Abstract
 {
     public interface IProjeService
     {
-        List<Proje> ProjeleriGetir();
-        Proje ProjeyiGetir(int KullaniciID, int ProjeID);
+        List<Proje> ProjeleriGetir(int KullaniciID);
+        Proje ProjeyiGetir(int ProjeID);
         void ProjeEkle(Proje p);
         void ProjeGuncelle(Proje p);
         void ProjeSil(Proje p);

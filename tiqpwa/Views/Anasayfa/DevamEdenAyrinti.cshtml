@@ -3,7 +3,7 @@
     ViewData["Title"] = "Devam Eden İşler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model DevamEden
+@model tiqpwa.Entities.Concrete.Proje
 <script>
     $(document).ready(function () {
         $('select').formSelect();
@@ -59,7 +59,7 @@
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" class="validate" value="@Model.Proje_Adi" type="text">
+                        <input id="proje_adi" class="validate" value="@Model.ProjeAdi" type="text">
                         <label for="proje_adi"><b> Proje Adı :</b></label>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" type="text">
+                        <input id="proje_adi" type="text" value="@Model.IlgiliPersonel">
                         <label for="proje_adi"> <b>Yetkili Kişi :</b></label>
                     </div>
                 </div>
@@ -75,23 +75,16 @@
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" type="text">
+                        <input id="proje_adi" type="text" value="@Model.YetkiliTelefon">
                         <label for="proje_adi"> <b>Yetkili Telefon :</b></label>
                     </div>
                 </div>
             </li>
+           
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" type="text">
-                        <label for="proje_adi"> <b>Proje Adı :</b></label>
-                    </div>
-                </div>
-            </li>
-            <li class="collection-item">
-                <div class="col s12">
-                    <div class="input-field">
-                        <input id="proje_adi" type="text">
+                        <input id="proje_adi" type="text" value="@Model.Lokasyon">
                         <label for="proje_adi" style="margin-left:5px"> <b>Lokasyon :</b></label>
                     </div>
                 </div>
@@ -99,7 +92,7 @@
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" type="text">
+                        <input id="proje_adi" type="text" value="@Model.ProjeTarihi">
                         <label for="proje_adi" style="margin-left:5px"> <b>Tarih :</b></label>
                     </div>
                 </div>
@@ -115,7 +108,7 @@
             <li class="collection-item">
                 <div class="col s12">
                     <div class="input-field">
-                        <input id="proje_adi" type="text">
+                        <input id="proje_adi" type="text" value="@Model.IsinAciklamasi">
                         <label for="proje_adi" style="margin-left:5px"> <b>İşin Açıklaması :</b></label>
                     </div>
                 </div>

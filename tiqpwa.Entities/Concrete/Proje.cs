@@ -9,7 +9,7 @@ namespace tiqpwa.Entities.Concrete
     {
         public int ProjeID { get; set; }
         public string ProjeAdi { get; set; }
-        public string YetkiliKisiAdiSoyadi { get; set; }
+        public int YetkiliID { get; set; }
         public string YetkiliTelefon { get; set; }
         public string Lokasyon { get; set; }
         public DateTime? ProjeTarihi { get; set; }

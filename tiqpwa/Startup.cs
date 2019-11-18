@@ -30,6 +30,10 @@ namespace tiqpwa
             services.AddProgressiveWebApp();
             services.AddScoped<IKullaniciService, KullaniciManager>();
             services.AddScoped<IKullaniciDataAccessLayer, EfKullaniciDataAccessLayer>();
+            services.AddScoped<IProjeService, ProjeManager>();
+            services.AddScoped<IProjeDataAccessLayer, EfProjeDataAccessLayer>();
+            services.AddScoped<IIsinKonusuService, IsinKonusuManager>();
+            services.AddScoped<IIsinKonusuDataAccessLayer, EfIsinKonusuDataAccessLayer>();
             services.AddControllersWithViews();
             services.AddSession();
         

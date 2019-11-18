@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Microsoft.AspNetCore.Http;
+@using tiqpwa.Entities.Concrete
+@using tiqpwa.ExtensionMethods
 
 <div class="center" style="margin-top:30px">
     <img src="~/karaman.png" class="responsive-img"/>
@@ -11,7 +13,14 @@
 
 
 <div class="col s6 m6" style="margin-top:20px">
-    <p><b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;"> @Context.Session.GetString("Kullanıcı_Adı") </b> </p>
+    <p><b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;">
+
+        @{
+            Kullanici kullanıcı = Context.Session.GetObject<Kullanici>("KullanıcıObjesi");
+            var isimsoyisim = kullanıcı.KullaniciAdi.ToUpper() + " " + kullanıcı.KullaniciSoyadi;
+            @isimsoyisim
+        }
+    </b> </p>
 </div>
 
 <div class="col s12" style="margin-top:10px">

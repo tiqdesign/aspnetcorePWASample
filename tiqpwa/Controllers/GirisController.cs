@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using tiqpwa.Business.Abstract;
 using tiqpwa.Entities.Concrete;
+using tiqpwa.ExtensionMethods;
 using tiqpwa.Models;
 
 namespace tiqpwa.Controllers
@@ -32,10 +33,13 @@ namespace tiqpwa.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var kullanici = _kullaniciService.KullaniciGetir(k.KullaniciGiris, k.KullaniciSifre);
-                    HttpContext.Session.SetString("Kullanıcı_Adı", kullanici.KullaniciAdi.ToUpper()+" "+kullanici.KullaniciSoyadi.ToUpper());
-                    HttpContext.Session.SetInt32("Kullanıcı_ID",kullanici.KullaniciID);
-                    return RedirectToAction("Index", "Anasayfa");
+                    var kullanici = _kullaniciService.KullaniciGetir(k.KullaniciGiris.ToLower(), k.KullaniciSifre);
+                    if (kullanici != null)
+                    {
+                        HttpContext.Session.SetObject("KullanıcıObjesi", kullanici);
+                        return RedirectToAction("Index", "Anasayfa");
+                    }
+                    return View();
                 }
                 else
                     return View();
