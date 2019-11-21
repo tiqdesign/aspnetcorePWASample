@@ -14,7 +14,7 @@
 <!--<input type="file" accept="image/x-png,image/jpeg,image/gif" />-->
 <div class="row" style="margin-top:20px">
     <img src="~/karaman.png" style="width: 100px" />
-    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px"><b style="color:white"> Geri </b></a>
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
 </div>
 <div class="card-title center">
     <p><b style="font-size:20px">Yeni İş Kaydı</b></p>
@@ -25,48 +25,48 @@
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="ProjeAdi" type="text">
-                    <label for="proje_adi">Proje Adı :</label>
+                    <label for="proje_adi"><b>Proje Adı : </b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="IlgiliPersonel" type="text">
-                    <label for="proje_adi">Yetkili Kişi :</label>
+                    <label for="proje_adi"><b>Yetkili Kişi :</b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="YetkiliTelefon" type="text">
-                    <label for="proje_adi">Yetkili Telefon :</label>
+                    <label for="proje_adi"> <b>Yetkili Telefon :</b></label>
                 </div>
             </div>
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="YetkiliID" type="text">
-                    <label for="proje_adi">Yetkili ID : </label>
+                    <label for="proje_adi"> <b>Yetkili ID : </b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="Lokasyon" type="text">
-                    <label for="proje_adi">Lokasyon : </label>
+                    <label for="proje_adi"> <b>Lokasyon : </b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="ProjeTarihi" type="text">
-                    <label for="proje_adi">Tarih : </label>
+                    <label for="proje_adi"> <b>Tarih : </b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" type="text">
-                    <label for="proje_adi">Saat : </label>
+                    <label for="proje_adi"> <b>Saat :</b> </label>
                 </div>
             </div>
 
@@ -80,14 +80,14 @@
                     <option value="5">İşçilik</option>
                 </select>
                 <label style="margin-left:-12px">
-                    İşin Konusu :
+                    <b>İşin Konusu :</b>
                 </label>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
                     <input id="proje_adi" asp-for="IsinAciklamasi" type="text">
-                    <label for="proje_adi"> İşin Açıklaması :</label>
+                    <label for="proje_adi"> <b>İşin Açıklaması :</b></label>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                     <option value="4">Sözleşme Dahilinde</option>
                 </select>
                 <label style="margin-left:-12px">
-                    İşin Cinsi :
+                    <b>İşin Cinsi :</b> 
                 </label>
             </div>
 
@@ -114,7 +114,7 @@
                     <option value="5">Yüksel Tunç</option>
                 </select>
                 <label style="margin-left:-12px">
-                    İlgili Personeller :
+                    <b>İlgili Personeller :</b>  
                 </label>
             </div>
 
@@ -125,12 +125,12 @@
                         <input type="file">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input class="file-path" type="text">
                     </div>
                 </div>
             </div>
             <div class="col s12 center-align">
-                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap">
+                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({html: 'Kaydediliyor...'})">
                     <p style="color:white">Kaydet</p>
                 </button>
             </div>

@@ -6,7 +6,7 @@
 @using Microsoft.AspNetCore.Http;
 @using tiqpwa.Entities.Concrete
 @using tiqpwa.ExtensionMethods
-@model tiqpwa.ViewModels.TariheGoreViewModel;
+@model tiqpwa.ViewModels.AnasayfaViewModel;
 <script>
     $(document).ready(function () {
         $('.datepicker').datepicker({
@@ -74,7 +74,6 @@
     <img src="~/karaman.png" class="responsive-img" />
 </div>
 
-
 <div class="col s6 m6" style="margin-top:20px">
     <p>
         <b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;">
@@ -91,47 +90,46 @@
 <div class="col s12" style="margin-top:10px">
     <ul class="collapsible">
         <li>
-            <a href="@Url.Action("YeniIsKaydi", "Anasayfa")">
+            <a href="@Url.Action("YeniIsKaydi", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">add</i>
                     <b>Yeni İş Kaydı Ekle</b>
-
                 </div>
             </a>
         </li>
         <li>
-            <a href="@Url.Action("DevamEdenListe", "Anasayfa")">
+            <a href="@Url.Action("DevamEdenListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
                     <b>Devam Eden İşler</b>
-                    <span class="badge"><b style="color:red">1</b></span>
+                    <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.DevamEdenSayi</b></span>
                 </div>
             </a>
         </li>
         <li>
-            <a href="@Url.Action("BeklemeListe", "Anasayfa")">
+            <a href="@Url.Action("BeklemeListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
                     <b>Beklemede Olan İşler</b>
-                    <span class="badge"><b style="color:red">4</b></span>
+                    <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.BeklemeSayi</b></span>
                 </div>
             </a>
         </li>
         <li>
-            <a href="@Url.Action("TamamlananListe", "Anasayfa")">
+            <a href="@Url.Action("TamamlananListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
                     <b>Tamamlanan İşler</b>
-                    <span class="badge"><b style="color:red">6</b></span>
+                    <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.TamamlananSayi</b></span>
                 </div>
             </a>
         </li>
         <li>
-            <a href="@Url.Action("IptalOlanListe", "Anasayfa")">
+            <a href="@Url.Action("IptalOlanListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
                     <b>İptal Olan İşler</b>
-                    <span class="badge"><b style="color:red">2</b></span>
+                    <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.IptalOlanSayi</b></span>
                 </div>
             </a>
         </li>
@@ -140,9 +138,9 @@
                 <div class="collapsible-header">
                             <div class="input-field" style="margin-left:20px">
                                 <label for="tarih"><b>Tarihe Göre Getir...</b></label>
-                                <input id="tarih" asp-for="Tarih" type="text" class="datepicker">
+                                <input id="tarih" asp-for="Tarih" type="text" value="@Model.Tarih.ToShortDateString()" class="datepicker">
                             </div>
-                            <button class="waves-effect waves-light btn-flat" style="margin-top: 20px; margin-left: 10px;" type="submit">
+                            <button class="waves-effect waves-light btn-flat" style="margin-top: 20px; margin-left: 10px;" type="submit" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                                 <i class="material-icons"> search </i>
                             </button>
                     </div>
@@ -152,5 +150,5 @@
 </div>
 
 <div class="col s12 center-align">
-    <a class="waves-effect waves-light btn grey darken-3" asp-action="CikisYap" asp-controller="Anasayfa"><span style="color:white">Çıkış Yap</span></a>
+    <a class="waves-effect waves-light btn grey darken-3" asp-action="CikisYap" asp-controller="Anasayfa" onclick="M.toast({html: 'Çıkış Yapılıyor...'})"><span style="color:white">Çıkış Yap</span></a>
 </div>

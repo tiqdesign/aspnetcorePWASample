@@ -29,13 +29,22 @@ namespace tiqpwa.Controllers
 
         public IActionResult Index()
         {
-            KullaniciGetir();
-            return View();
+            kullanici = HttpContext.Session.GetObject<Kullanici>("KullanıcıObjesi");
+            var projeler = _projeService.TumProjeleriGetir(kullanici.KullaniciID);
+            var projeSayilari = new AnasayfaViewModel()
+            {
+                BeklemeSayi = projeler.Count(p => p.ProjeDurumu == 2),
+                DevamEdenSayi = projeler.Count(p => p.ProjeDurumu == 1),
+                IptalOlanSayi = projeler.Count(p => p.ProjeDurumu == 4),
+                TamamlananSayi = projeler.Count(p => p.ProjeDurumu == 3),
+                Tarih = DateTime.Now.Date
+            };
+            return View(projeSayilari);
         }
 
         public IActionResult DevamEdenListe()
         {
-            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID);
+            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID,1);
             var DevamEdenListe = new List<DevamEdenListeViewModel>();
 
             foreach (var proje in projeler)
@@ -61,22 +70,38 @@ namespace tiqpwa.Controllers
 
         public IActionResult BeklemeListe()
         {
-            return View();
+            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 2);
+            return View(projeler);
+        }
+
+        public IActionResult BeklemeAyrinti(int id)
+        {
+            var proje = _projeService.ProjeyiGetir(id);
+            return View(proje);
         }
 
         public IActionResult TamamlananListe()
         {
-            return View();
+            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 3);
+            return View(projeler);
+        }
+
+        public IActionResult TamamlanmaAyrinti(int id)
+        {
+            var proje = _projeService.ProjeyiGetir(id);
+            return View(proje);
         }
 
         public IActionResult IptalOlanListe()
         {
-            return View();
+            var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 4);
+            return View(projeler);
         }
 
-        public IActionResult Takvim()
+        public IActionResult IptalOlanAyrinti(int id)
         {
-            return View();
+            var proje = _projeService.ProjeyiGetir(id);
+            return View(proje);
         }
 
         [HttpGet]
@@ -109,12 +134,16 @@ namespace tiqpwa.Controllers
 
         public IActionResult TariheGoreGetir(DateTime tarih)
         {
-            var projeler = _projeService.ProjeleriTarihIleGetir(tarih);
-            return View(projeler);
-        }
-        void KullaniciGetir()
-        {
-            kullanici = HttpContext.Session.GetObject<Kullanici>("KullanıcıObjesi");
+            try
+            {
+                var projeler = _projeService.ProjeleriTarihIleGetir(tarih);
+                return View(projeler);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+            
         }
     }
 }

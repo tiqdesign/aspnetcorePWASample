@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using tiqpwa.Business.Abstract;
 using tiqpwa.DataAccess.Abstract;
@@ -15,9 +16,15 @@ namespace tiqpwa.Business.Concrete
         {
             _projeDataAccessLayer = projeDataAccessLayer;
         }
-        public List<Proje> ProjeleriGetir(int KullaniciID)
+
+        public List<Proje> TumProjeleriGetir(int KullaniciID)
         {
-            return _projeDataAccessLayer.GetList(p=> p.YetkiliID == KullaniciID);
+            return _projeDataAccessLayer.GetList(p => p.YetkiliID == KullaniciID);
+        }
+
+        public List<Proje> ProjeleriGetir(int KullaniciID, short projeDurumu)
+        {
+            return _projeDataAccessLayer.GetList(p=> p.YetkiliID == KullaniciID && p.ProjeDurumu == projeDurumu);
         }
         //bu kısımda düzeltilmesi gereken yerler var.
         public Proje ProjeyiGetir(int ProjeID)

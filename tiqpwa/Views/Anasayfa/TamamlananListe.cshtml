@@ -3,50 +3,33 @@
     ViewData["Title"] = "TamamlananListe";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div class="row" style="margin-top:20px">
-        <img src="~/karaman.png" style="width: 100px" />
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px"><b style="color:white"> Geri </b></a>
-    </div>
+@model List<tiqpwa.Entities.Concrete.Proje>
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
+</div>
+
+
 <div class="col s12" style="margin-top:10px">
 
     <ul class="collection with-header">
         <li>
             <div class="collection-header center-align">
-                <b style="font-size:18px">TAMAMLANAN İŞLER </b>
-           </div>
-            <!--listenin her bir elemanı tıklanabilir olacak ve ayrıntılarını verecek.-->
-            <div class="collection-item">
-                <p><b style="color: red"> Proje Adı:</b> <b> A Projesi </b></p>
-                <p><b style="color: red"> Tarih :</b> <b> 01.01.2020  </b></p>
-                <p><b style="color: red"> Tamamlanma Tarihi :</b> <b> 01.01.2020</b></p>
-                <p><b style="color: red"> Konu  :</b> <b> Devreye Alma </b></p>
-                <p><b style="color: red"> İlgili Personel :</b> <b> Enes Zeybekoğlu </b></p>
+                <b style="font-size: 18px">TAMAMLANAN İŞLER </b>
             </div>
-
-            <!--Burada foreach içerisinde brojeler dönecek kendi kendine olusacak-->
-            <div class="collection-item">
-                <p><b style="color: red"> Proje Adı:</b> <b> B Projesi </b></p>
-                <p><b style="color: red"> Tarih :</b> <b> 01.01.2020  </b></p>
-                <p><b style="color: red"> Tamamlanma Tarihi :</b> <b> 01.01.2020</b></p>
-                <p><b style="color: red"> Konu  :</b> <b> Devreye Alma </b></p>
-                <p><b style="color: red"> İlgili Personel :</b> <b> Enes Zeybekoğlu </b></p>
-            </div>
-
-            <div class="collection-item">
-                <p><b style="color: red"> Proje Adı:</b> <b> C Projesi </b></p>
-                <p><b style="color: red"> Tarih :</b> <b> 01.01.2020  </b></p>
-                <p><b style="color: red"> Tamamlanma Tarihi :</b> <b> 01.01.2020</b></p>
-                <p><b style="color: red"> Konu  :</b> <b> Devreye Alma </b></p>
-                <p><b style="color: red"> İlgili Personel :</b> <b> Enes Zeybekoğlu </b></p>
-            </div>
-
-            <div class="collection-item">
-                <p><b style="color: red"> Proje Adı:</b> <b> D Projesi </b></p>
-                <p><b style="color: red"> Tarih :</b> <b> 01.01.2020  </b></p>
-                <p><b style="color: red"> Tamamlanma Tarihi :</b> <b> 01.01.2020</b></p>
-                <p><b style="color: red"> Konu  :</b> <b> Devreye Alma </b></p>
-                <p><b style="color: red"> İlgili Personel :</b> <b> Enes Zeybekoğlu </b></p>
-            </div>
+            @foreach (var item in Model)
+            {
+                <div class="collection-item">
+                    <a href="@Url.Action("TamamlanmaAyrinti", "Anasayfa", new {id = item.ProjeID})">
+                        <p><b style="color: red"> Proje Adı: </b><b> @item.ProjeAdi</b></p>
+                        <p><span class="badge secondary-content" style="margin-top: 10px"><i class="material-icons">chevron_right</i></span></p>
+                        <p><b style="color: red"> Tarih : </b><b>@item.ProjeTarihi </b></p>
+                        <p><b style="color: red"> Konu : </b><b>@item.IsinKonusu </b></p>
+                        <p><b style="color:red">  Tamamlanma Tarihi :</b><b>@item.TamamlanmaTarihi</b></p>
+                        <p><b style="color: red"> İlgili Personel : </b><b>@item.IlgiliPersonel</b></p>
+                    </a>
+                </div>
+            }
         </li>
     </ul>
 </div>

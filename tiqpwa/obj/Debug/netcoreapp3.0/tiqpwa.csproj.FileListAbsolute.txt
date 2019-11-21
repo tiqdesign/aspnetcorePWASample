@@ -150,3 +150,6 @@ C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\NWebsec.AspNet
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\bin\Debug\netcoreapp3.0\WebEssentials.AspNetCore.Pwa.dll
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\tiqpwa.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\tiqpwa.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\IptalOlanAyrinti.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\BeklemeAyrinti.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\TamamlanmaAyrinti.cshtml.g.cs

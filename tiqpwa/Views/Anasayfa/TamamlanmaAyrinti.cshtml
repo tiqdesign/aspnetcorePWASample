@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewData["Title"] = "Devam Eden İşler";
+    ViewData["Title"] = "TamamlanmaAyrinti";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @model tiqpwa.Entities.Concrete.Proje
 <script>
     $(document).ready(function () {
@@ -76,12 +77,8 @@
         </div>
     </form>
     <div class="center-align">
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red    darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> İptal Et</b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small yellow darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Beklemeye Al </b></a>
         <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small green  darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Kaydediliyor...'})"><b style="color:white"> Kaydet </b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
+        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Rapor Çıkarılıyor...'})"><b style="color:white"> Rapor Çıkart </b></a>
     </div>
-
-
 </div>
 

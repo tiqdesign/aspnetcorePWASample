@@ -11,5 +11,6 @@ namespace tiqpwa.ViewModels
         public int BeklemeSayi { get; set; }
         public int TamamlananSayi { get; set; }
         public int IptalOlanSayi { get; set; }
+        public DateTime Tarih { get; set; }
     }
 }
