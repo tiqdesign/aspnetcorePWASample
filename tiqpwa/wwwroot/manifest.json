@@ -1,14 +1,14 @@
 {
-  "name": "KaramanTek",
+  "name": "Karaman Teknoloji",
   "short_name": "Karaman",
-  "description": "Created by tiqdesign",
+  "description": "The most awesome application in the world",
   "icons": [
     {
-      "src": "/img/calculator192.png",
+      "src": "/img/iconkaraman192.png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/calculator512.png",
+      "src": "/img/iconkaraman512.png",
       "sizes": "512x512"
     }
   ],

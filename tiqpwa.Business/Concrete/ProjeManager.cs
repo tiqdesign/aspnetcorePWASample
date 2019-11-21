@@ -25,6 +25,11 @@ namespace tiqpwa.Business.Concrete
             return _projeDataAccessLayer.Get(p => p.ProjeID == ProjeID);
         }
 
+        public List<Proje> ProjeleriTarihIleGetir(DateTime tarih)
+        {
+            return _projeDataAccessLayer.GetList(p => p.ProjeTarihi == tarih);
+        }
+
         public void ProjeEkle(Proje p)
         {
            _projeDataAccessLayer.Add(p);

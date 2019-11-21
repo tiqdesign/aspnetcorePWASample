@@ -3,7 +3,14 @@
     ViewData["Title"] = "Takvim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div class="center-align">
-        <h1> Takvim Sayfası </h1>
-        <a href="mailto:emailadress?subject=Myemail&body=sometext&attach=c:\\girisindex.txt">Example link</a>
-        </div>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+</script>
+
+<div class="center-align">
+    <h1> Takvim Sayfası </h1>
+    <!-- <a href="mailto:emailadress?subject=Myemail&body=sometext&attach=c:\\girisindex.txt">Example link</a>  -->
+    <input type="text" class="datepicker" autoclose="true" />
+</div>

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,8 @@ using tiqpwa.Business.Abstract;
 using tiqpwa.Business.Concrete;
 using tiqpwa.DataAccess.Abstract;
 using tiqpwa.DataAccess.Concrete.EntityFramework;
+using tiqpwa.Entities.Concrete;
+using tiqpwa.ExtensionMethods;
 
 namespace tiqpwa
 {
@@ -35,8 +39,9 @@ namespace tiqpwa
             services.AddScoped<IIsinKonusuService, IsinKonusuManager>();
             services.AddScoped<IIsinKonusuDataAccessLayer, EfIsinKonusuDataAccessLayer>();
             services.AddControllersWithViews();
-            services.AddSession();
-        
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromDays(7);
+            });
         }
 
        

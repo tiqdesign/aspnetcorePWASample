@@ -1,0 +1,8 @@
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\bin\Release\netcoreapp3.0\tiqpwa.Core.deps.json
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\bin\Release\netcoreapp3.0\tiqpwa.Core.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\bin\Release\netcoreapp3.0\tiqpwa.Core.pdb
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\obj\Release\netcoreapp3.0\tiqpwa.Core.csprojAssemblyReference.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\obj\Release\netcoreapp3.0\tiqpwa.Core.AssemblyInfoInputs.cache
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\obj\Release\netcoreapp3.0\tiqpwa.Core.AssemblyInfo.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\obj\Release\netcoreapp3.0\tiqpwa.Core.dll
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa.Core\obj\Release\netcoreapp3.0\tiqpwa.Core.pdb

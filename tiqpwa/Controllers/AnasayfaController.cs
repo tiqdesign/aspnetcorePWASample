@@ -19,15 +19,14 @@ namespace tiqpwa.Controllers
     {
         private IProjeService _projeService;
         private IIsinKonusuService _isinKonusuService;
-     
         public static Kullanici kullanici;
-        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService, IKullaniciService kullaniciService)
+
+        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService)
         {
             _projeService = projeService;
-
             _isinKonusuService = isinKonusuService;
-
         }
+
         public IActionResult Index()
         {
             KullaniciGetir();
@@ -102,6 +101,17 @@ namespace tiqpwa.Controllers
             }
         }
 
+        public IActionResult CikisYap()
+        {
+            HttpContext.Session.Remove("KullanıcıObjesi");
+            return RedirectToAction("Index","Giris");
+        }
+
+        public IActionResult TariheGoreGetir(DateTime tarih)
+        {
+            var projeler = _projeService.ProjeleriTarihIleGetir(tarih);
+            return View(projeler);
+        }
         void KullaniciGetir()
         {
             kullanici = HttpContext.Session.GetObject<Kullanici>("KullanıcıObjesi");

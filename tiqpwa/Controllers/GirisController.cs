@@ -23,7 +23,14 @@ namespace tiqpwa.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            if (HttpContext.Session.GetObject<Kullanici>("KullanıcıObjesi")!= null)
+            {
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
@@ -33,7 +40,7 @@ namespace tiqpwa.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var kullanici = _kullaniciService.KullaniciGetir(k.KullaniciGiris.ToLower(), k.KullaniciSifre);
+                    var kullanici = _kullaniciService.KullaniciGetir(k.KullaniciGiris.ToLower().Trim(), k.KullaniciSifre);
                     if (kullanici != null)
                     {
                         HttpContext.Session.SetObject("KullanıcıObjesi", kullanici);

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "TariheGoreGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<tiqpwa.Entities.Concrete.Proje>
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px"><b style="color:white"> Geri </b></a>
+</div>
+
+@{
+    var tarih = Model.Find(p => p.ProjeID != null).ProjeTarihi.Value.ToShortDateString();
+}
+<div class="col s12" style="margin-top:10px">
+
+    <ul class="collection with-header">
+        <li>
+            <div class="collection-header center-align">
+                <b style="font-size: 18px">
+                   @tarih İş Günü</b>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="collection-item">
+                    <a href="@Url.Action("DevamEdenAyrinti", "Anasayfa", new {id = item.ProjeID})">
+                        <p><b style="color: red"> Proje Adı: </b><b> @item.ProjeAdi</b></p>
+                        <p><span class="badge secondary-content" style="margin-top: 10px"><i class="material-icons">chevron_right</i></span></p>
+                        <p><b style="color: red"> Tarih : </b><b>@item.ProjeTarihi.Value.ToShortDateString() </b></p>
+                        <p><b style="color: red"> Konu : </b><b>@item.IsinKonusu </b></p>
+                        <p><b style="color: red"> İlgili Personel : </b><b>@item.IlgiliPersonel</b></p>
+                    </a>
+                </div>
+            }
+        </li>
+    </ul>
+</div>

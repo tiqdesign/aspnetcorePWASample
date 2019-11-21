@@ -6,21 +6,86 @@
 @using Microsoft.AspNetCore.Http;
 @using tiqpwa.Entities.Concrete
 @using tiqpwa.ExtensionMethods
+@model tiqpwa.ViewModels.TariheGoreViewModel;
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            i18n: {
+                months: [
+                    'Ocak',
+                    'Şubat',
+                    'Mart',
+                    'Nisan',
+                    'Mayıs',
+                    'Haziran',
+                    'Temmuz',
+                    'Ağustos',
+                    'Eylül',
+                    'Ekim',
+                    'Kasım',
+                    'Aralık'
+                ],
+                monthsShort: [
+                    'Oca',
+                    'Şub',
+                    'Mar',
+                    'Nis',
+                    'May',
+                    'Haz',
+                    'Tem',
+                    'Ağu',
+                    'Eyl',
+                    'Eki',
+                    'Kas',
+                    'Ara'
+                ],
+                weekdays: [
+                    'Pazar',
+                    'Pazartesi',
+                    'Salı',
+                    'Çarşamba',
+                    'Perşembe',
+                    'Cuma',
+                    'Cumartesi'
+
+                ],
+                weekdaysShort: [
+                    'Pz',
+                    'Pzt',
+                    'Sl',
+                    'Çrş',
+                    'Prş',
+                    'Cm',
+                    'Cmt'
+                ],
+                weekdaysAbbrev: ['P', 'Pzt', 'S', 'Ç', 'Pr', 'C', 'Cts'],
+                cancel: 'Geri',
+                clear: 'Temizle',
+                done: 'Tamam'
+            },
+            firstDay: 1,
+            autoClose: true
+        });
+    });
+</script>
+
 
 <div class="center" style="margin-top:30px">
-    <img src="~/karaman.png" class="responsive-img"/>
+    <img src="~/karaman.png" class="responsive-img" />
 </div>
 
 
 <div class="col s6 m6" style="margin-top:20px">
-    <p><b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;">
+    <p>
+        <b style="font-family: 'Roboto Condensed', sans-serif; color: red;">Hoşgeldiniz,</b> <b style="color: black; font-family: 'Roboto Condensed', sans-serif;">
 
-        @{
-            Kullanici kullanıcı = Context.Session.GetObject<Kullanici>("KullanıcıObjesi");
-            var isimsoyisim = kullanıcı.KullaniciAdi.ToUpper() + " " + kullanıcı.KullaniciSoyadi;
-            @isimsoyisim
-        }
-    </b> </p>
+            @{
+                Kullanici kullanıcı = Context.Session.GetObject<Kullanici>("KullanıcıObjesi");
+                var isimsoyisim = kullanıcı.KullaniciAdi.ToUpper() + " " + kullanıcı.KullaniciSoyadi;
+                @isimsoyisim
+            }
+        </b>
+    </p>
 </div>
 
 <div class="col s12" style="margin-top:10px">
@@ -30,7 +95,7 @@
                 <div class="collapsible-header">
                     <i class="material-icons">add</i>
                     <b>Yeni İş Kaydı Ekle</b>
-                 
+
                 </div>
             </a>
         </li>
@@ -71,17 +136,21 @@
             </a>
         </li>
         <li>
-            <a href="@Url.Action("Takvim", "Anasayfa")">
+            <form asp-action="TariheGoreGetir">
                 <div class="collapsible-header">
-                    <i class="material-icons">chevron_right</i>
-                    <b>Takvim</b>
-                    <span class="badge"><b style="color:red">9</b></span>
-                </div>
-            </a>
+                            <div class="input-field" style="margin-left:20px">
+                                <label for="tarih"><b>Tarihe Göre Getir...</b></label>
+                                <input id="tarih" asp-for="Tarih" type="text" class="datepicker">
+                            </div>
+                            <button class="waves-effect waves-light btn-flat" style="margin-top: 20px; margin-left: 10px;" type="submit">
+                                <i class="material-icons"> search </i>
+                            </button>
+                    </div>
+            </form>
         </li>
     </ul>
 </div>
 
 <div class="col s12 center-align">
-    <a class="waves-effect waves-light btn grey darken-3" href="@Url.Action("Index","Giris")"><span style="color:white">Çıkış Yap</span></a>
+    <a class="waves-effect waves-light btn grey darken-3" asp-action="CikisYap" asp-controller="Anasayfa"><span style="color:white">Çıkış Yap</span></a>
 </div>
