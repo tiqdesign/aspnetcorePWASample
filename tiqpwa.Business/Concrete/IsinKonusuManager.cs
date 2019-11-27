@@ -18,5 +18,10 @@ namespace tiqpwa.Business.Concrete
         {
             return _isinKonusuDataAccessLayer.Get(k => k.KonuID == konuId);
         }
+
+        public List<IsinKonusu> KonularıGetir()
+        {
+            return _isinKonusuDataAccessLayer.GetList();
+        }
     }
 }

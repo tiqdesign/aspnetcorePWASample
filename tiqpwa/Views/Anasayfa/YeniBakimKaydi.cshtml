@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+@model tiqpwa.Entities.Concrete.Proje
+<input type="file" accept="image/x-png,image/jpeg,image/gif" />-->
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
+</div>
+<div class="card-title center">
+    <p><b style="font-size:20px">Yeni İş Kaydı</b></p>
+</div>
+<div class="card">
+    <div class="card-content">
+        <form class="col s12" asp-action="YeniBakimKaydi">
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="ProjeAdi" type="text">
+                    <label for="proje_adi"><b>Proje Adı : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="IlgiliPersonel" type="text">
+                    <label for="proje_adi"><b>Yetkili Kişi :</b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="YetkiliTelefon" type="text">
+                    <label for="proje_adi"> <b>Yetkili Telefon :</b></label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="YetkiliID" type="text">
+                    <label for="proje_adi"> <b>Yetkili ID : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="Lokasyon" type="text">
+                    <label for="proje_adi"> <b>Lokasyon : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="ProjeTarihi" type="text">
+                    <label for="proje_adi"> <b>Tarih : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" type="text">
+                    <label for="proje_adi"> <b>Saat :</b> </label>
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <select asp-for="IsinKonusu">
+                    <option value="" disabled selected>Lütfen birini seçiniz</option>
+                    <option value="1">Devreye Alma</option>
+                    <option value="2">Test</option>
+                    <option value="3">Montaj</option>
+                    <option value="4">Süpervizörlük</option>
+                    <option value="5">İşçilik</option>
+                </select>
+                <label style="margin-left:-12px">
+                    <b>İşin Konusu :</b>
+                </label>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="IsinAciklamasi" type="text">
+                    <label for="proje_adi"> <b>İşin Açıklaması :</b></label>
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <select asp-for="IsinCinsi">
+                    <option value="" disabled selected>Lütfen birini seçiniz</option>
+                    <option value="1">Ücretli</option>
+                    <option value="2">Ücretsiz</option>
+                    <option value="3">Bakım</option>
+                    <option value="4">Sözleşme Dahilinde</option>
+                </select>
+                <label style="margin-left:-12px">
+                    <b>İşin Cinsi :</b>
+                </label>
+            </div>
+
+            <div class="input-field col s12">
+                <select multiple>
+                    <option value="" disabled>Lütfen birini seçiniz</option>
+                    <option value="1">Eyüp Çelik</option>
+                    <option value="2">Enes Zeybekoğlu</option>
+                    <option value="3">M. Ali Karaman</option>
+                    <option value="4">Mesut Karaman</option>
+                    <option value="5">Yüksel Tunç</option>
+                </select>
+                <label style="margin-left:-12px">
+                    <b>İlgili Personeller :</b>
+                </label>
+            </div>
+
+            <div class="row" style="margin-left: 3px; margin-right:3px ">
+                <div class="file-field input-field">
+                    <div class="btn-small">
+                        <span>Fotoğraf Yükle</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 center-align">
+                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({html: 'Kaydediliyor...'})">
+                    <p style="color:white">Kaydet</p>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

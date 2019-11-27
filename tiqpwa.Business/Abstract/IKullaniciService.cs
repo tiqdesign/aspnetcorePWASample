@@ -9,6 +9,7 @@ namespace tiqpwa.Business.Abstract
     {
         List<Kullanici> TumKullanicilariGetir();
         Kullanici KullaniciGetir(string username, string password);
+        Kullanici KullaniciSifreGetir(string email, string phone);
         void KullaniciEkle(Kullanici k);
         void KullaniciGuncelle(Kullanici k);
         void KullaniciSil(Kullanici k);

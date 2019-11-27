@@ -8,6 +8,7 @@ using tiqpwa.Business.Abstract;
 using tiqpwa.Entities.Concrete;
 using tiqpwa.ExtensionMethods;
 using tiqpwa.Models;
+using tiqpwa.ViewModels;
 
 namespace tiqpwa.Controllers
 {
@@ -34,27 +35,103 @@ namespace tiqpwa.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(Kullanici k)
+        public IActionResult Index(GirisViewModel k)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var kullanici = _kullaniciService.KullaniciGetir(k.KullaniciGiris.ToLower().Trim(), k.KullaniciSifre);
+                    var kullanici = _kullaniciService.KullaniciGetir(k.kullanici.KullaniciGiris.ToLower().Trim(), k.kullanici.KullaniciSifre);
                     if (kullanici != null)
                     {
                         HttpContext.Session.SetObject("KullanıcıObjesi", kullanici);
                         return RedirectToAction("Index", "Anasayfa");
                     }
-                    return View();
+                    else
+                    {
+                        var hataliGiris = new GirisViewModel()
+                        {
+                            kullanici = null,
+                            hatali = true
+                        };
+                        return View(hataliGiris);
+                    }
                 }
                 else
-                    return View();
+                {
+                    var hataliGiris = new GirisViewModel()
+                    {
+                        kullanici = null,
+                        hatali = true
+                    };
+                    return View(hataliGiris);
+                }
+            }
+            catch (Exception)
+            {
+                var hataliGiris = new GirisViewModel()
+                {
+                    kullanici = null,
+                    hatali = true
+                };
+                return View(hataliGiris);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult SifreYenileme()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SifreYenileme(SifreYenilemeViewModel k)
+        {
+            try
+            { 
+                var kullanici = _kullaniciService.KullaniciSifreGetir(k.Email.Trim().ToLower(), k.Telefon.Trim());
+                var kullaniciModel = new SifreYenilemeViewModel()
+                {
+                    Telefon = kullanici.KullaniciMail,
+                    Email = kullanici.KullaniciMail,
+                    Sifre = kullanici.KullaniciSifre,
+                    KullaniciAdi = kullanici.KullaniciGiris
+                };
+                return View(kullaniciModel);
+            }
+            catch (Exception e)
+            {
+                var kullaniciModel = new SifreYenilemeViewModel()
+                {
+                    Telefon = null,
+                    Email = null,
+                    Sifre = "Belirtilen mail ve telefon bilgilerine göre bir hesap bulunamadı!",
+                    KullaniciAdi = ""
+                };
+                return View(kullaniciModel);
+            }
+          
+        }
+
+        [HttpGet]
+        public IActionResult KayitOl()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult KayitOl(Kullanici k)
+        {
+            try
+            {
+                _kullaniciService.KullaniciEkle(k);
+                return RedirectToAction("Index","Giris");
             }
             catch (Exception e)
             {
                 return View();
             }
+           
         }
     }
 }

@@ -4,30 +4,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model tiqpwa.Entities.Concrete.Kullanici;
+@model tiqpwa.ViewModels.GirisViewModel;
 
-<div class="center" style="margin-top: 80px">
+<div class="center" style="margin-top: 50px">
     <img src="~/karaman.png" class="responsive-img" />
 </div>
 <div class="container">
     <div class="col s12 m4 l4 xl4 center-align" style="margin-top:20px">
         <div class="card hoverable">
             <div class="card-content" style="padding-top: 20px">
-                <p class="cart-title flow-text" style="color:#424242"> KARAMAN TEKNOLOJİ <br/> - İŞ TAKİP SİSTEMİ - </p>
+                <p class="cart-title flow-text" > <b style="color:#424242"> KARAMAN TEKNOLOJİ</b> <br/> <b style="color:#424242">- İŞ TAKİP SİSTEMİ - </b></p>
                 <hr style="color:#4fc3f7"/>
                 <form class="col s12" asp-action="Index" asp-validation-summary="all" style="margin-top:25px">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">person_outline</i>
-                            <input id="kullanici_adi" type="text" asp-for="KullaniciGiris" class="validate">
-                            <label for="kullanici_adi">Kullanıcı Adı:</label>
+                            <input id="kullanici_adi" type="text" asp-for="kullanici.KullaniciGiris">
+                            <label for="kullanici_adi"><b>Kullanıcı Adı :</b></label>
                         </div>
 
                         <div class="input-field col s12" style="padding-top:-15px;">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input id="kullanici_sifre" type="password" asp-for="KullaniciSifre" class="validate">
-                            <label for="kullanici_sifre">Şifre:</label>
+                            <input id="kullanici_sifre" type="password" asp-for="kullanici.KullaniciSifre">
+                            <label for="kullanici_sifre"><b>Şifre :</b></label>
                         </div>
+                        
+                        @{
+                            if (Model != null)
+                            {
+                                if (Model.hatali)
+                                {
+                                    <div class="row" style="margin-top:20px">
+                                        <div class="col s12 m12">
+                                            <div class="card red darken-2">
+                                                <div class="card-content">
+                                                    <span class="card-title"><b style="color:white">Hata !!!</b></span>
+                                                    <p><b style="color:white">Kullanıcı Adı veya Şifreniz Yanlıştır Tekrar Deneyiniz!</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }  
+                            }
+                            
+                        }
 
                         <div class="col s12 center-align">
                             <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({html: 'Bilgiler Kontrol Ediliyor...'})">
@@ -36,8 +56,33 @@
                         </div>
                     </div>
                 </form>
+                <div class="col s6">
+                    <a class="btn-flat" href="@Url.Action("SifreYenileme","Giris")" style="letter-spacing: .5px" name="sifre_yenile" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
+                        <p><b style="color:grey">Şifremi Unuttum!</b></p>
+                    </a>
+                </div>
+                <div class="col s6">
+                    <a class="btn-flat" href="@Url.Action("KayitOl","Giris")" style="letter-spacing: .5px" name="sifre_yenile" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
+                        <p><b style="color:grey">Kayıt Ol</b></p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
+@section Scripts {
+    <script>
+        if (navigator.serviceWorker.controller) {
+            console.log('Activate Service workers');
+        } else {
+            navigator.serviceWorker.register('sw.js',
+                {
+                    scope: './'
+                }).then(function(reg) {
+                console.log('Service worker has been registered for scope');
+            });
+        }   
+    </script>
+
+}

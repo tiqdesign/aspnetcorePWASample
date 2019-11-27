@@ -31,7 +31,6 @@ namespace tiqpwa
       
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddProgressiveWebApp();
             services.AddScoped<IKullaniciService, KullaniciManager>();
             services.AddScoped<IKullaniciDataAccessLayer, EfKullaniciDataAccessLayer>();
             services.AddScoped<IProjeService, ProjeManager>();

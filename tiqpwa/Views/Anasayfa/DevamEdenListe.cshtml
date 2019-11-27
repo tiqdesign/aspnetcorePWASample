@@ -3,7 +3,7 @@
     ViewData["Title"] = "DevamEdenListe";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model List<tiqpwa.ViewModels.DevamEdenListeViewModel>
+@model List<tiqpwa.ViewModels.ProjeListeViewModel>
 <div class="row" style="margin-top:20px">
     <img src="~/karaman.png" style="width: 100px" />
     <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
@@ -20,12 +20,12 @@
             @foreach (var item in Model)
             {
                 <div class="collection-item">
-                    <a href="@Url.Action("DevamEdenAyrinti", "Anasayfa", new {id = item.ProjeId})">
-                        <p><b style="color: red"> Proje Adı: </b><b> @item.ProjeAdi</b></p>
+                    <a href="@Url.Action("DevamEdenAyrinti", "Anasayfa", new {id = item.Proje.ProjeID})">
+                        <p><b style="color: red"> Proje Adı: </b><b> @item.Proje.ProjeAdi</b></p>
                         <p><span class="badge secondary-content" style="margin-top: 10px"><i class="material-icons">chevron_right</i></span></p>
-                        <p><b style="color: red"> Tarih : </b><b>@item.Tarih </b></p>
-                        <p><b style="color: red"> Konu : </b><b>@item.Konu </b></p>
-                        <p><b style="color: red"> İlgili Personel : </b><b>@item.IlgiliPersonel</b></p>
+                        <p><b style="color: red"> Tarih : </b><b>@item.Proje.ProjeTarihi </b></p>
+                        <p><b style="color: red"> Konu : </b><b>@item.KonuString </b></p>
+                        <p><b style="color: red"> İlgili Personel : </b><b>@item.Proje.IlgiliPersonel</b></p>
                     </a>
                 </div>
             }

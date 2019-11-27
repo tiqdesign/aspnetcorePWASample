@@ -1,0 +1,30 @@
+[debug] [2019-11-26T13:22:48.846Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:22:48.848Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tar24\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2019-11-26T13:22:48.849Z] CLI Version:   7.8.1
+[debug] [2019-11-26T13:22:48.849Z] Platform:      win32
+[debug] [2019-11-26T13:22:48.849Z] Node Version:  v10.16.3
+[debug] [2019-11-26T13:22:48.851Z] Time:          Tue Nov 26 2019 16:22:48 GMT+0300 (GMT+03:00)
+[debug] [2019-11-26T13:22:48.851Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:22:48.851Z] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+
+[debug] [2019-11-26T13:27:03.194Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:27:03.208Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tar24\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2019-11-26T13:27:03.209Z] CLI Version:   7.8.1
+[debug] [2019-11-26T13:27:03.209Z] Platform:      win32
+[debug] [2019-11-26T13:27:03.209Z] Node Version:  v10.16.3
+[debug] [2019-11-26T13:27:03.211Z] Time:          Tue Nov 26 2019 16:27:03 GMT+0300 (GMT+03:00)
+[debug] [2019-11-26T13:27:03.211Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:27:03.211Z] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+
+[debug] [2019-11-26T13:29:57.644Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:29:57.646Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tar24\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2019-11-26T13:29:57.647Z] CLI Version:   7.8.1
+[debug] [2019-11-26T13:29:57.647Z] Platform:      win32
+[debug] [2019-11-26T13:29:57.647Z] Node Version:  v10.16.3
+[debug] [2019-11-26T13:29:57.648Z] Time:          Tue Nov 26 2019 16:29:57 GMT+0300 (GMT+03:00)
+[debug] [2019-11-26T13:29:57.648Z] ----------------------------------------------------------------------
+[debug] [2019-11-26T13:29:57.648Z] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+

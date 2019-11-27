@@ -80,7 +80,7 @@
 
             @{
                 Kullanici kullanıcı = Context.Session.GetObject<Kullanici>("KullanıcıObjesi");
-                var isimsoyisim = kullanıcı.KullaniciAdi.ToUpper() + " " + kullanıcı.KullaniciSoyadi;
+                var isimsoyisim = kullanıcı.KullaniciAdi.ToUpper() + " " + kullanıcı.KullaniciSoyadi.ToUpper();
                 @isimsoyisim
             }
         </b>
@@ -93,7 +93,15 @@
             <a href="@Url.Action("YeniIsKaydi", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">add</i>
-                    <b>Yeni İş Kaydı Ekle</b>
+                    <b>YENİ İŞ KAYDI EKLE</b>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("YeniBakimKaydi", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
+                <div class="collapsible-header">
+                    <i class="material-icons">add</i>
+                    <b>YENİ BAKIM KAYDI EKLE</b>
                 </div>
             </a>
         </li>
@@ -101,7 +109,7 @@
             <a href="@Url.Action("DevamEdenListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
-                    <b>Devam Eden İşler</b>
+                    <b>DEVAM EDEN İŞLER</b>
                     <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.DevamEdenSayi</b></span>
                 </div>
             </a>
@@ -110,7 +118,7 @@
             <a href="@Url.Action("BeklemeListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
-                    <b>Beklemede Olan İşler</b>
+                    <b>BEKLEMEDE OLAN İŞLER</b>
                     <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.BeklemeSayi</b></span>
                 </div>
             </a>
@@ -119,7 +127,7 @@
             <a href="@Url.Action("TamamlananListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
-                    <b>Tamamlanan İşler</b>
+                    <b>TAMAMLANAN İŞLER</b>
                     <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.TamamlananSayi</b></span>
                 </div>
             </a>
@@ -128,24 +136,33 @@
             <a href="@Url.Action("IptalOlanListe", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
                 <div class="collapsible-header">
                     <i class="material-icons">chevron_right</i>
-                    <b>İptal Olan İşler</b>
+                    <b>İPTAL OLAN İŞLER</b>
                     <span class="new badge red" data-badge-caption="Proje"><b style="color: white">@Model.IptalOlanSayi</b></span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("BakimTakvim", "Anasayfa")" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
+                <div class="collapsible-header">
+                    <i class="material-icons">chevron_right</i>
+                    <b>BAKIM TAKVİMİ</b>
                 </div>
             </a>
         </li>
         <li>
             <form asp-action="TariheGoreGetir">
                 <div class="collapsible-header">
-                            <div class="input-field" style="margin-left:20px">
-                                <label for="tarih"><b>Tarihe Göre Getir...</b></label>
-                                <input id="tarih" asp-for="Tarih" type="text" value="@Model.Tarih.ToShortDateString()" class="datepicker">
-                            </div>
-                            <button class="waves-effect waves-light btn-flat" style="margin-top: 20px; margin-left: 10px;" type="submit" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
-                                <i class="material-icons"> search </i>
-                            </button>
+                    <div class="input-field" style="margin-left:20px">
+                        <label for="tarih"><b>TARİHE GÖRE GETİR....</b></label>
+                        <input id="tarih" asp-for="Tarih" type="text" value="@Model.Tarih.ToShortDateString()" class="datepicker">
                     </div>
+                    <button class="waves-effect waves-light btn-flat" style="margin-top: 20px; margin-left: 10px;" type="submit" onclick="M.toast({html: 'Sayfa Yükleniyor...'})">
+                        <i class="material-icons"> search </i>
+                    </button>
+                </div>
             </form>
         </li>
+       
     </ul>
 </div>
 

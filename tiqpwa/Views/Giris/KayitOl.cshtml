@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "KayitOl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model tiqpwa.Entities.Concrete.Kullanici
+
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Giris")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
+</div>
+<div class="card-title center">
+    <p><b style="font-size:20px">Yeni Kullanıcı</b></p>
+</div>
+<div class="card">
+    <div class="card-content">
+        <form class="col s12" asp-action="KayitOl">
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciGiris" type="text">
+                    <label for="proje_adi"><b>Kullanıcı Adı : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciSifre" type="text">
+                    <label for="proje_adi"><b>Şifre :</b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciAdi" type="text">
+                    <label for="proje_adi"> <b>Adı :</b></label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciSoyadi" type="text">
+                    <label for="proje_adi"> <b>Soyadı : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciTelefon" type="text">
+                    <label for="proje_adi"> <b>Telefon : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciMail" type="text">
+                    <label for="proje_adi"> <b>Mail : </b></label>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="proje_adi" asp-for="KullaniciDepartman" type="text">
+                    <label for="proje_adi"> <b>Departman :</b> </label>
+                </div>
+            </div>
+
+            <div class="col s12 center-align">
+                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({html: 'Kaydediliyor...'})">
+                    <p style="color:white">Kayıt Ol</p>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

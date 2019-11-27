@@ -3,10 +3,71 @@
     ViewData["Title"] = "BeklemeAyrinti";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model tiqpwa.Entities.Concrete.Proje
+@model tiqpwa.ViewModels.ProjeListeViewModel
 <script>
     $(document).ready(function () {
         $('select').formSelect();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            i18n: {
+                months: [
+                    'Ocak',
+                    'Şubat',
+                    'Mart',
+                    'Nisan',
+                    'Mayıs',
+                    'Haziran',
+                    'Temmuz',
+                    'Ağustos',
+                    'Eylül',
+                    'Ekim',
+                    'Kasım',
+                    'Aralık'
+                ],
+                monthsShort: [
+                    'Oca',
+                    'Şub',
+                    'Mar',
+                    'Nis',
+                    'May',
+                    'Haz',
+                    'Tem',
+                    'Ağu',
+                    'Eyl',
+                    'Eki',
+                    'Kas',
+                    'Ara'
+                ],
+                weekdays: [
+                    'Pazar',
+                    'Pazartesi',
+                    'Salı',
+                    'Çarşamba',
+                    'Perşembe',
+                    'Cuma',
+                    'Cumartesi'
+
+                ],
+                weekdaysShort: [
+                    'Pz',
+                    'Pzt',
+                    'Sl',
+                    'Çrş',
+                    'Prş',
+                    'Cm',
+                    'Cmt'
+                ],
+                weekdaysAbbrev: ['P', 'Pzt', 'S', 'Ç', 'Pr', 'C', 'Cts'],
+                cancel: 'Geri',
+                clear: 'Temizle',
+                done: 'Tamam'
+            },
+            firstDay: 1,
+            autoClose: true
+        });
     });
 </script>
 <div class="row" style="margin-top:20px">
@@ -23,55 +84,72 @@
 
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" value="@Model.ProjeAdi" type="text">
+                <input id="proje_adi" value="@Model.Proje.ProjeAdi" type="text">
                 <label for="proje_adi"><b> Proje Adı :</b></label>
             </div>
         </div>
         <div class="col s12">
+            <label for="tarih"><b>Proje Tarihi :</b></label>
+            <input id="tarih" type="text" value="@Model.Proje.ProjeTarihi" class="datepicker">
+        </div>
+        <div class="col s12">
+            <label for="bekleme_tarih"><b>Bekleme Alınma Tarihi :</b></label>
+            <input id="bekleme_tarih" type="text" value="@Model.Proje.BeklemeAlinmaTarihi" class="datepicker">
+        </div>
+        <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" type="text" value="@Model.IlgiliPersonel">
-                <label for="proje_adi"> <b>Yetkili Kişi :</b></label>
+                <input id="ilgili_personel" type="text" value="@Model.Proje.IlgiliPersonel">
+                <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" type="text" value="@Model.YetkiliTelefon">
-                <label for="proje_adi"> <b>Yetkili Telefon :</b></label>
+                <input id="yetkili_tel" type="text" value="@Model.Proje.YetkiliTelefon">
+                <label for="yetkili_tel"> <b>Yetkili Telefon :</b></label>
+            </div>
+        </div>
+
+        <div class="col s12">
+            <div class="input-field">
+                <select id="isin_konusu">
+                    @foreach (var item in Model.Konular)
+                    {
+                        if (item.KonuID == Model.Proje.IsinKonusu)
+                        {
+                            <option value="@item.KonuID" selected>@item.Aciklama</option>
+                        }
+                        else
+                        {
+                            <option value="@item.KonuID">@item.Aciklama</option>
+                        }
+                    }
+                </select>
+                <label for="isin_konusu"><b>Konu :</b></label>
+            </div>
+        </div>
+
+        <div class="col s12">
+            <div class="input-field">
+                <input id="lokasyon" type="text" value="@Model.Proje.Lokasyon">
+                <label for="lokasyon"> <b>Lokasyon :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" type="text" value="@Model.Lokasyon">
-                <label for="proje_adi" style="margin-left:5px"> <b>Lokasyon :</b></label>
+                <textarea id="bekleme_sebep" class="materialize-textarea" value="@Model.Proje.BeklemeSebebi"></textarea>
+                <label for="bekleme_sebep"> <b>Bekleme Alınma Sebebi :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" type="text" value="@Model.ProjeTarihi">
-                <label for="proje_adi" style="margin-left:5px"> <b>Tarih :</b></label>
+                <textarea id="proje_not" class="materialize-textarea" value="@Model.Proje.ProjeNot"></textarea>
+                <label for="proje_not"> <b>Not Ekle :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" type="text">
-                <label for="proje_adi" style="margin-left:5px"> <b>Saat :</b></label>
-            </div>
-        </div>
-        <div class="col s12">
-            <div class="input-field">
-                <input id="proje_adi" type="text" value="@Model.IsinAciklamasi">
-                <label for="proje_adi" style="margin-left:5px"> <b>İşin Açıklaması :</b></label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="file-field input-field">
-                <div class="btn">
-                    <span>Fotoğraf Yükle</span>
-                    <input type="file">
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                </div>
+                <textarea id="kullanilan_urun" class="materialize-textarea" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
+                <label for="kullanilan_urun"> <b>İlave Kullanılan Ürünler :</b></label>
             </div>
         </div>
     </form>

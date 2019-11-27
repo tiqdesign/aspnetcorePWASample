@@ -8,5 +8,6 @@ namespace tiqpwa.Business.Abstract
     public interface IIsinKonusuService
     {
         IsinKonusu KonuGetir(short? konuId);
+        List<IsinKonusu> KonularıGetir();
     }
 }

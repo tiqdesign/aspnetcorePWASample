@@ -27,6 +27,11 @@ namespace tiqpwa.Business.Concrete
             return _kullaniciDataAccessLayer.Get(k => k.KullaniciGiris == username && k.KullaniciSifre == password);
         }
 
+        public Kullanici KullaniciSifreGetir(string email, string phone)
+        {
+            return _kullaniciDataAccessLayer.Get(k => k.KullaniciTelefon == phone && k.KullaniciMail == email);
+        }
+
         public void KullaniciEkle(Kullanici k)
         {
             _kullaniciDataAccessLayer.Add(k);

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "SifreYenileme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model tiqpwa.ViewModels.SifreYenilemeViewModel
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Giris")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
+</div>
+
+<div class="container">
+    <div class="col s12 m4 l4 xl4 center-align" style="margin-top:20px">
+        <div class="card hoverable">
+            <div class="card-content" style="padding-top: 20px">
+                <p class="cart-title flow-text">
+                    <b style="color:#424242"> Şifreyi Unuttum! </b> <br />
+                </p>
+                <hr style="color:#4fc3f7" />
+                <form class="col s12" asp-action="SifreYenileme" asp-validation-summary="all" style="margin-top:25px">
+                    <div class="row">
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="kullanici_email" type="text" asp-for="Email">
+                            <label for="kullanici_email"><b>Email Adresiniz :</b></label>
+                        </div>
+
+                        <div class="input-field col s12" style="padding-top: -15px;">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="kullanici_telefon" type="text" asp-for="Telefon">
+                            <label for="kullanici_telefon"><b>Telefon Numaranız :</b></label>
+                        </div>
+
+                        <div class="col s12 center-align" style="margin-bottom: 20px">
+                            <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({ html: 'Bilgiler Kontrol Ediliyor...' })">
+                                <p style="color: white">Şifreyi Getir</p>
+                            </button>
+                        </div>
+                        @{
+                            if (Model!= null)
+                            {
+                                <div class="row" style="margin-top:20px">
+                                    <div class="col s12 m12">
+                                        <div class="card grey lighten-2">
+                                            <div class="card-content">
+                                                <span class="card-title"><b style="color:#424242">Bilgileriniz...</b></span>
+                                                <p><b style="color:#424242">Kullanıcı Adı : @Model.KullaniciAdi</b></p>
+                                                <p><b style="color:#424242">Sifre : @Model.Sifre</b></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

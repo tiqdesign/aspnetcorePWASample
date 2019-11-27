@@ -330,10 +330,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
-            },
-            "WebEssentials.AspNetCore.PWA": {
-              "target": "Package",
-              "version": "[1.0.59, )"
             }
           },
           "imports": [
