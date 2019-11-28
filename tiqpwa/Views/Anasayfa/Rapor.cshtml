@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Rapor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model tiqpwa.Entities.Concrete.Proje
+<div class="row" style="margin-top:20px">
+    <img src="~/karaman.png" style="width: 100px" />
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
+</div>
+<div class="card z-depth-3">
+    <div class="card-content">
+        <table class="centered">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Proje Adı </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.ProjeAdi</td>
+            </tr>
+            <tr>
+                <td>Yetkili Adı </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.IlgiliPersonel</td>
+            </tr>
+            <tr>
+                <td>Yetkili Telefon </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.YetkiliTelefon</td>
+            </tr>
+            <tr>
+                <td>Lokasyon </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.Lokasyon</td>
+            </tr>
+            <tr>
+                <td>İşe Başlama Tarihi </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.ProjeTarihi</td>
+            </tr>
+            <tr>
+                <td>Tamamlanma Tarihi </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.TamamlanmaTarihi</td>
+            </tr>
+            <tr>
+                <td>İşin Cinsi </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.IsinCinsi</td>
+            </tr>
+            <tr>
+                <td>İşin Konusu </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.IsinKonusu</td>
+            </tr>
+            <tr>
+                <td>Yapılan İş Notları </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.ProjeNot</td>
+            </tr>
+            <tr>
+                <td>İlave Kullanılan Ürün </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.IlaveKullanilanUrun</td>
+            </tr>
+            <tr>
+                <td>İlgili Personeller </td>
+                <td><span class="large material-icons">more_horiz</span></td>
+                <td>@Model.IlgiliPersonel</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="center-align">
+    <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Uygulama Açılıyor...'})"><b style="color:white"> Mail Gönder </b></a>
+</div>

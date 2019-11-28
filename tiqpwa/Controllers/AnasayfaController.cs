@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Net.Http;
 using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
@@ -47,6 +48,7 @@ namespace tiqpwa.Controllers
             return View(DevamEdenListe);
         }
 
+        [HttpGet]
         public IActionResult DevamEdenAyrinti(int id)
         {
             var proje = _projeService.ProjeyiGetir(id);
@@ -58,6 +60,20 @@ namespace tiqpwa.Controllers
                 Konular = konular
             };
             return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult DevamEdenAyrinti(ProjeListeViewModel p)
+        {
+            try
+            {
+                _projeService.ProjeGuncelle(p.Proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         public IActionResult BeklemeListe()
@@ -79,6 +95,7 @@ namespace tiqpwa.Controllers
             return View(BeklemeListe);
         }
 
+        [HttpGet]
         public IActionResult BeklemeAyrinti(int id)
         {
             var proje = _projeService.ProjeyiGetir(id);
@@ -90,6 +107,20 @@ namespace tiqpwa.Controllers
                 Konular = konular
             };
             return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult BeklemeAyrinti(ProjeListeViewModel p)
+        {
+            try
+            {
+                _projeService.ProjeGuncelle(p.Proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         public IActionResult TamamlananListe()
@@ -111,6 +142,7 @@ namespace tiqpwa.Controllers
             return View(TamanlananListe);
         }
 
+        [HttpGet]
         public IActionResult TamamlanmaAyrinti(int id)
         {
             var proje = _projeService.ProjeyiGetir(id);
@@ -122,6 +154,20 @@ namespace tiqpwa.Controllers
                 Konular = konular
             };
             return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult TamamlanmaAyrinti(ProjeListeViewModel p)
+        {
+            try
+            {
+                _projeService.ProjeGuncelle(p.Proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         public IActionResult IptalOlanListe()
@@ -143,6 +189,7 @@ namespace tiqpwa.Controllers
             return View(İptalListe);
         }
 
+        [HttpGet]
         public IActionResult IptalOlanAyrinti(int id)
         {
             var proje = _projeService.ProjeyiGetir(id);
@@ -155,6 +202,26 @@ namespace tiqpwa.Controllers
             };
             return View(item);
         }
+
+        [HttpPost]
+        public IActionResult IptalOlanAyrinti(ProjeListeViewModel p)
+        {
+            try
+            {
+                _projeService.ProjeGuncelle(p.Proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+
+        public IActionResult Rapor(Proje p)
+        {
+            return View(p);
+        }
+
         #endregion
 
 
@@ -224,11 +291,6 @@ namespace tiqpwa.Controllers
                 return View();
             }
             
-        }
-
-        public IActionResult TamamlananKaydet()
-        {
-            return RedirectToAction("Index","Anasayfa");
         }
 
         //burası suan calısmıyor

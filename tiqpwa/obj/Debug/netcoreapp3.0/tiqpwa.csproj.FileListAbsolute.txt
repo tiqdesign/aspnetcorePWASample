@@ -147,3 +147,4 @@ C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\An
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\BakimTakvim.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Giris\SifreYenileme.cshtml.g.cs
 C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Giris\KayitOl.cshtml.g.cs
+C:\Users\tar24\source\repos\tiqpwa\tiqpwa\obj\Debug\netcoreapp3.0\Razor\Views\Anasayfa\Rapor.cshtml.g.cs

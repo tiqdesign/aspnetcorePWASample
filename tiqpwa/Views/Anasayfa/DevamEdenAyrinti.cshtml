@@ -80,33 +80,54 @@
     <div class="center-align">
         <p><b> Bilgileri Güncelle </b></p>
     </div>
-    <form class="col s12" style="border-spacing:-50px -50px;">
+
+    <form class="col s12" asp-action="DevamEdenAyrinti" asp-validation-summary="all" style="border-spacing:-50px -50px;">
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.YetkiliID" value="@Model.Proje.YetkiliID" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.ProjeDurumu" value="@Model.Proje.ProjeDurumu" />
+            </div>
+        </div>
 
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi" value="@Model.Proje.ProjeAdi" type="text">
+                <input id="proje_adi" asp-for="Proje.ProjeAdi" value="@Model.Proje.ProjeAdi" type="text">
                 <label for="proje_adi"><b> Proje Adı :</b></label>
             </div>
         </div>
         <div class="col s12" >
             <label for="tarih"><b>Proje Tarihi :</b></label>
-            <input id="tarih"  type="text" value="@Model.Proje.ProjeTarihi" class="datepicker">
+            <input id="tarih"  type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="ilgili_personel" type="text" value="@Model.Proje.IlgiliPersonel">
+                <input id="ilgili_personel" type="text" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
                 <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="yetkili_tel" type="text" value="@Model.Proje.YetkiliTelefon">
+                <input id="yetkili_tel" type="text" asp-for="Proje.YetkiliTelefon" value="@Model.Proje.YetkiliTelefon">
                 <label for="yetkili_tel"> <b>Yetkili Telefon :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <select id="isin_konusu">
+                <select id="isin_konusu" asp-for="Proje.IsinKonusu">
                     @foreach (var item in Model.Konular)
                     {
                         if (item.KonuID == Model.Proje.IsinKonusu)
@@ -125,27 +146,29 @@
 
         <div class="col s12">
             <div class="input-field">
-                <input id="lokasyon" type="text" value="@Model.Proje.Lokasyon">
+                <input id="lokasyon" asp-for="Proje.Lokasyon" type="text" value="@Model.Proje.Lokasyon">
                 <label for="lokasyon" > <b>Lokasyon :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <textarea id="proje_not" class="materialize-textarea" value="@Model.Proje.ProjeNot"></textarea>
+                <textarea id="proje_not" class="materialize-textarea" asp-for="Proje.ProjeNot" value="@Model.Proje.ProjeNot"></textarea>
                 <label for="proje_not"> <b>Not Ekle :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <textarea id="kullanilan_urun" class="materialize-textarea" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
+                <textarea id="kullanilan_urun" class="materialize-textarea" asp-for="Proje.IlaveKullanilanUrun" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
                 <label for="kullanilan_urun" > <b>İlave Kullanılan Ürünler :</b></label>
             </div>
+        </div>
+        <div class="center-align">
+            <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>
     </form>
     <div class="center-align">
         <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red    darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> İptal Et</b></a>
         <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small yellow darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Beklemeye Al </b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small green  darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Kaydediliyor...'})"><b style="color:white"> Kaydet </b></a>
         <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
     </div>
 

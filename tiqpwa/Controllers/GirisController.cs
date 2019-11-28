@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using tiqpwa.Business.Abstract;
-using tiqpwa.Entities.Concrete;
+using tiqpwa.Entities.Concrete; 
 using tiqpwa.ExtensionMethods;
 using tiqpwa.Models;
 using tiqpwa.ViewModels;
