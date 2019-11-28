@@ -11,5 +11,6 @@ namespace tiqpwa.ViewModels
         public Proje Proje { get; set; }
         public string KonuString { get; set; }
         public List<IsinKonusu> Konular { get; set; }
+        public string IsinCinsiString { get; set; }
     }
 }

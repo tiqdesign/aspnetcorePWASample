@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using tiqpwa.Entities.Concrete
+@using tiqpwa.ViewModels
 @model tiqpwa.ViewModels.ProjeListeViewModel
 <script>
     $(document).ready(function () {
@@ -75,7 +76,31 @@
     <img src="~/karaman.png" style="width: 100px" />
     <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
 </div>
+@{
+    Proje p = new Proje()
+    {
+        ProjeID = Model.Proje.ProjeID,
+        ProjeTarihi = Model.Proje.ProjeTarihi,
+        IsinCinsi = Model.Proje.IsinCinsi,
+        YetkiliID = Model.Proje.YetkiliID,
+        ProjeDurumu = Model.Proje.ProjeDurumu,
+        ProjeAdi = Model.Proje.ProjeAdi,
+        TamamlanmaTarihi = Model.Proje.TamamlanmaTarihi,
+        IlgiliPersonel = Model.Proje.IlgiliPersonel,
+        YetkiliTelefon = Model.Proje.YetkiliTelefon,
+        IsinKonusu = Model.Proje.IsinKonusu,
+        Lokasyon = Model.Proje.Lokasyon,
+        IlaveKullanilanUrun = Model.Proje.IlaveKullanilanUrun,
+        ProjeNot = Model.Proje.ProjeNot
+    };
 
+    ProjeListeViewModel plv = new ProjeListeViewModel()
+    {
+        Proje = p,
+        KonuString = Model.KonuString,
+        Konular = Model.Konular
+    };
+}
 <div class="card-panel white hoverable" style="margin-top:10px;">
     <div class="center-align">
         <p><b> Bilgileri Güncelle </b></p>
@@ -169,7 +194,7 @@
         </div>
     </form>
     <div class="center-align">
-        <a href="@Url.Action("Rapor", "Anasayfa",Model.Proje)" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Rapor Çıkarılıyor...'})"><b style="color:white"> Rapor Çıkart </b></a>
+        <a href="@Url.Action("Rapor","Anasayfa",new {id = @Model.Proje.ProjeID})" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Rapor Çıkarılıyor...'})"><b style="color:white"> Rapor Çıkart </b></a>
     </div>
 </div>
 

@@ -16,5 +16,6 @@ namespace tiqpwa.DataAccess.Concrete.EntityFramework
         public DbSet<Kullanici> Kullanici { get; set; }
         public DbSet<Proje> Proje { get; set; }
         public DbSet<IsinKonusu> IsinKonusu { get; set; }
+        public DbSet<IsinCinsi> IsinCinsi { get; set; }
     }
 }

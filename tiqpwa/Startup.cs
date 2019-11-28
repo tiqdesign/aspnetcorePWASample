@@ -37,6 +37,8 @@ namespace tiqpwa
             services.AddScoped<IProjeDataAccessLayer, EfProjeDataAccessLayer>();
             services.AddScoped<IIsinKonusuService, IsinKonusuManager>();
             services.AddScoped<IIsinKonusuDataAccessLayer, EfIsinKonusuDataAccessLayer>();
+            services.AddScoped<IIsinCinsiService, IsinCinsiManager>();
+            services.AddScoped<IIsinCinsiDataAccessLayer, EfIsinCinsiDataAccessLayer>();
             services.AddControllersWithViews();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromDays(7);

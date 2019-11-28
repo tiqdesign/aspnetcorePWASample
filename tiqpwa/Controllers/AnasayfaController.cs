@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 using tiqpwa.Business.Abstract;
+using tiqpwa.DataAccess.Abstract;
 using tiqpwa.Entities.Concrete;
 using tiqpwa.ExtensionMethods;
 using tiqpwa.Models;
@@ -20,12 +21,14 @@ namespace tiqpwa.Controllers
     {
         private IProjeService _projeService;
         private IIsinKonusuService _isinKonusuService;
+        private IIsinCinsiService _isinCinsiService;
         public static Kullanici kullanici;
 
-        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService)
+        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService, IIsinCinsiService isinCinsiService)
         {
             _projeService = projeService;
             _isinKonusuService = isinKonusuService;
+            _isinCinsiService = isinCinsiService;
         }
 
         #region Listelerin Metodları
@@ -217,9 +220,18 @@ namespace tiqpwa.Controllers
             }
         }
 
-        public IActionResult Rapor(Proje p)
+        public IActionResult Rapor(int id)
         {
-            return View(p);
+            var proje = _projeService.ProjeyiGetir(id);
+            var konular = _isinKonusuService.KonularıGetir();
+            var item = new ProjeListeViewModel()
+            {
+                Proje = proje,
+                KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
+                Konular = konular,
+                IsinCinsiString  = _isinCinsiService.CinsiGetir(proje.IsinCinsi).Aciklama
+            };
+            return View(item);
         }
 
         #endregion
