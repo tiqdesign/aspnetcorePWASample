@@ -5,9 +5,11 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
 using System.Reflection.PortableExecutable;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using tiqpwa.Business.Abstract;
 using tiqpwa.DataAccess.Abstract;
 using tiqpwa.Entities.Concrete;
@@ -79,6 +81,7 @@ namespace tiqpwa.Controllers
             }
         }
 
+
         public IActionResult BeklemeListe()
         {
             var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 2);
@@ -125,6 +128,8 @@ namespace tiqpwa.Controllers
                 return View();
             }
         }
+
+        
 
         public IActionResult TamamlananListe()
         {
@@ -234,6 +239,71 @@ namespace tiqpwa.Controllers
             return View(item);
         }
 
+        public IActionResult ProjeyiTamamla(int id)
+        {
+            try
+            {
+                var proje = _projeService.ProjeyiGetir(id);
+                proje.TamamlanmaTarihi = DateTime.Now;
+                proje.ProjeDurumu = 3;
+                _projeService.ProjeGuncelle(proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction();
+            }
+        }
+
+        public IActionResult ProjeyiBeklemeyeAl(ProjeListeViewModel p)
+        {
+            try
+            {
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID); 
+                proje.BeklemeAlinmaTarihi = DateTime.Now;
+                proje.BeklemeSebebi = p.Proje.BeklemeSebebi;
+                proje.ProjeDurumu = 2;
+                _projeService.ProjeGuncelle(proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction();
+            }
+        }
+
+        public IActionResult ProjeyiIptalEt(ProjeListeViewModel p)
+        {
+            try
+            {
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID);
+                proje.IptalTarihi = DateTime.Now;
+                proje.IptalSebebi = p.Proje.IptalSebebi;
+                proje.ProjeDurumu = 4;
+                _projeService.ProjeGuncelle(proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction();
+            }
+        }
+
+        public IActionResult ProjeyiSil(ProjeListeViewModel p)
+        {
+            try
+            {
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID);
+                proje.ProjeDurumu = 5;
+                _projeService.ProjeGuncelle(proje);
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction();
+            }
+        }
+        
         #endregion
 
 

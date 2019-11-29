@@ -11,6 +11,11 @@
 </script>
 <script>
     $(document).ready(function () {
+        $('.modal').modal();
+    })
+</script>
+<script>
+    $(document).ready(function () {
         $('.datepicker').datepicker({
             i18n: {
                 months: [
@@ -103,13 +108,13 @@
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="proje_adi"  asp-for="Proje.ProjeAdi" value="@Model.Proje.ProjeAdi" type="text">
+                <input id="proje_adi" asp-for="Proje.ProjeAdi" value="@Model.Proje.ProjeAdi" type="text">
                 <label for="proje_adi"><b> Proje Adı :</b></label>
             </div>
         </div>
         <div class="col s12">
             <label for="tarih"><b>Proje Tarihi :</b></label>
-            <input id="tarih" type="text"  asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
+            <input id="tarih" type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
         </div>
         <div class="col s12">
             <label for="bekleme_tarih"><b>Bekleme Alınma Tarihi :</b></label>
@@ -117,20 +122,20 @@
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="ilgili_personel" type="text"  asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
+                <input id="ilgili_personel" type="text" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
                 <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <input id="yetkili_tel" type="text"  asp-for="Proje.YetkiliTelefon" value="@Model.Proje.YetkiliTelefon">
+                <input id="yetkili_tel" type="text" asp-for="Proje.YetkiliTelefon" value="@Model.Proje.YetkiliTelefon">
                 <label for="yetkili_tel"> <b>Yetkili Telefon :</b></label>
             </div>
         </div>
 
         <div class="col s12">
             <div class="input-field">
-                <select id="isin_konusu"  asp-for="Proje.IsinKonusu">
+                <select id="isin_konusu" asp-for="Proje.IsinKonusu">
                     @foreach (var item in Model.Konular)
                     {
                         if (item.KonuID == Model.Proje.IsinKonusu)
@@ -149,25 +154,25 @@
 
         <div class="col s12">
             <div class="input-field">
-                <input id="lokasyon" type="text"  asp-for="Proje.Lokasyon" value="@Model.Proje.Lokasyon">
+                <input id="lokasyon" type="text" asp-for="Proje.Lokasyon" value="@Model.Proje.Lokasyon">
                 <label for="lokasyon"> <b>Lokasyon :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <textarea id="bekleme_sebep" class="materialize-textarea"  asp-for="Proje.BeklemeSebebi" value="@Model.Proje.BeklemeSebebi"></textarea>
+                <textarea id="bekleme_sebep" class="materialize-textarea" asp-for="Proje.BeklemeSebebi" value="@Model.Proje.BeklemeSebebi"></textarea>
                 <label for="bekleme_sebep"> <b>Bekleme Alınma Sebebi :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <textarea id="proje_not" class="materialize-textarea"  asp-for="Proje.ProjeNot" value="@Model.Proje.ProjeNot"></textarea>
+                <textarea id="proje_not" class="materialize-textarea" asp-for="Proje.ProjeNot" value="@Model.Proje.ProjeNot"></textarea>
                 <label for="proje_not"> <b>Not Ekle :</b></label>
             </div>
         </div>
         <div class="col s12">
             <div class="input-field">
-                <textarea id="kullanilan_urun" class="materialize-textarea"  asp-for="Proje.IlaveKullanilanUrun" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
+                <textarea id="kullanilan_urun" class="materialize-textarea" asp-for="Proje.IlaveKullanilanUrun" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
                 <label for="kullanilan_urun"> <b>İlave Kullanılan Ürünler :</b></label>
             </div>
         </div>
@@ -175,9 +180,28 @@
             <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>
     </form>
+
+    <div id="modal_iptal" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiIptalEt" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="input-field">
+                    <textarea id="proje_iptalnedeni" class="materialize-textarea" asp-for="Proje.IptalSebebi"></textarea>
+                    <label for="proje_iptalnedeni"> <b>İptal Sebebi :</b></label>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn red   darken-1 " style="margin-top: 5px" onclick="M.toast({ html: 'İptal Ediliyor...' })"><b style="color: white"> İptal Et </b></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
     <div class="center-align">
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red    darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> İptal Et</b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
+        <a href="#modal_iptal" class="waves-effect waves-light btn-small modal-trigger red    darken-1 " style="margin-top:5px"><b style="color:white"> İptal Et</b></a>
+        <a href="@Url.Action("ProjeyiTamamla", "Anasayfa",new {id = Model.Proje.ProjeID})" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
     </div>
 
 

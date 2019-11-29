@@ -3,11 +3,17 @@
     ViewData["Title"] = "Devam Eden İşler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using Microsoft.EntityFrameworkCore
 @model tiqpwa.ViewModels.ProjeListeViewModel
 <script>
     $(document).ready(function () {
         $('select').formSelect();
     });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    })
 </script>
 <script>
     $(document).ready(function () {
@@ -109,9 +115,9 @@
                 <label for="proje_adi"><b> Proje Adı :</b></label>
             </div>
         </div>
-        <div class="col s12" >
+        <div class="col s12">
             <label for="tarih"><b>Proje Tarihi :</b></label>
-            <input id="tarih"  type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
+            <input id="tarih" type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
         </div>
         <div class="col s12">
             <div class="input-field">
@@ -147,7 +153,7 @@
         <div class="col s12">
             <div class="input-field">
                 <input id="lokasyon" asp-for="Proje.Lokasyon" type="text" value="@Model.Proje.Lokasyon">
-                <label for="lokasyon" > <b>Lokasyon :</b></label>
+                <label for="lokasyon"> <b>Lokasyon :</b></label>
             </div>
         </div>
         <div class="col s12">
@@ -159,17 +165,55 @@
         <div class="col s12">
             <div class="input-field">
                 <textarea id="kullanilan_urun" class="materialize-textarea" asp-for="Proje.IlaveKullanilanUrun" value="@Model.Proje.IlaveKullanilanUrun"></textarea>
-                <label for="kullanilan_urun" > <b>İlave Kullanılan Ürünler :</b></label>
+                <label for="kullanilan_urun"> <b>İlave Kullanılan Ürünler :</b></label>
             </div>
         </div>
         <div class="center-align">
             <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>
     </form>
+    <!-- Modal Structure -->
+    <div id="modal_iptal" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiIptalEt" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="input-field">
+                    <textarea id="proje_iptalnedeni" class="materialize-textarea" asp-for="Proje.IptalSebebi"></textarea>
+                    <label for="proje_iptalnedeni"> <b>İptal Sebebi :</b></label>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn-small red  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'İptal Ediliyor...' })"><b style="color: white"> İptal Et </b></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    
+    <!-- Modal Structure -->
+    <div id="modal_bekleme" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiBeklemeyeAl" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="input-field">
+                    <textarea id="proje_beklemenedeni" class="materialize-textarea" asp-for="Proje.BeklemeSebebi"></textarea>
+                    <label for="proje_beklemenedeni"> <b>Bekleme Sebebi :</b></label>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn yellow  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Beklemeye Alınıyor...' })"><b style="color: white"> Beklemeye Al</b></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
     <div class="center-align">
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red    darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> İptal Et</b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small yellow darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Beklemeye Al </b></a>
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
+        <a href="#modal_iptal" class="waves-effect waves-light btn-small modal-trigger red  darken-1 " style="margin-top:5px"><b style="color:white"> İptal Et</b></a>
+        <a href="#modal_bekleme" class="waves-effect waves-light btn-small modal-trigger  yellow darken-1 " style="margin-top:5px"><b style="color:white"> Beklemeye Al </b></a>
+        <a href="@Url.Action("ProjeyiTamamla", "Anasayfa", new {id = @Model.Proje.ProjeID})" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
     </div>
 
 

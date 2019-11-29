@@ -11,6 +11,11 @@
 </script>
 <script>
     $(document).ready(function () {
+        $('.modal').modal();
+    })
+</script>
+<script>
+    $(document).ready(function () {
         $('.datepicker').datepicker({
             i18n: {
                 months: [
@@ -173,12 +178,45 @@
         <div class="center-align">
             <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>
-
     </form>
+    <!-- Modal Structure -->
+    <div id="modal_bekleme" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiBeklemeyeAl" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="input-field">
+                    <textarea id="proje_beklemenedeni" class="materialize-textarea" asp-for="Proje.BeklemeSebebi"></textarea>
+                    <label for="proje_beklemenedeni"> <b>Bekleme Sebebi :</b></label>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn yellow  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Beklemeye Alınıyor...' })"><b style="color: white"> Beklemeye Al</b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal_silme" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiSil" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="center-align">
+                    <h4>
+                        Silmek istediğinizden emin misiniz?
+                    </h4>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn red  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Siliniyor...' })"><b style="color: white"> Projeyi Sil</b></button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="center-align">
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small yellow darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Beklemeye Al </b></a>
-  
-        <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Projeyi Sil </b></a>
+        <a href="#modal_bekleme" class="waves-effect waves-light btn-small modal-trigger  yellow darken-1 " style="margin-top:5px"><b style="color:white"> Beklemeye Al </b></a>
+        <a href="#modal_silme" class="waves-effect waves-light btn-small modal-trigger  red darken-1 " style="margin-top:5px"><b style="color:white"> Projeyi Sil </b></a>
     </div>
 
 
