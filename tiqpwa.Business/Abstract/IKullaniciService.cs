@@ -8,6 +8,7 @@ namespace tiqpwa.Business.Abstract
     public interface IKullaniciService
     {
         List<Kullanici> TumKullanicilariGetir();
+        Kullanici IdyeGoreKullanici(int ID);
         Kullanici KullaniciGetir(string username, string password);
         Kullanici KullaniciSifreGetir(string email, string phone);
         void KullaniciEkle(Kullanici k);

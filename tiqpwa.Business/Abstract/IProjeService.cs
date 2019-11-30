@@ -9,8 +9,9 @@ namespace tiqpwa.Business.Abstract
     {
         List<Proje> TumProjeleriGetir(int KullaniciID);
         List<Proje> ProjeleriGetir(int KullaniciID, short projeDurumu);
-        Proje ProjeyiGetir(int ProjeID);
-        List<Proje> ProjeleriTarihIleGetir(DateTime tarih);
+        Proje ProjeyiGetir(Guid ID, int KullaniciID);
+        List<Proje> IlgiliProjeleriGetir(Guid ProjeID , int KullaniciID);
+        List<Proje> ProjeleriTarihIleGetir(DateTime tarih, int KullaniciID);
         void ProjeEkle(Proje p);
         void ProjeGuncelle(Proje p);
         void ProjeSil(Proje p);

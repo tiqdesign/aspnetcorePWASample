@@ -88,22 +88,27 @@
     <form class="col s12" asp-action="BeklemeAyrinti" asp-validation-summary="all" style="border-spacing: -50px -50px;">
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi" />
+                <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.YetkiliID" value="@Model.Proje.YetkiliID" />
+                <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.ProjeDurumu" value="@Model.Proje.ProjeDurumu" />
+                <input type="hidden" asp-for="Proje.YetkiliID" value="@Model.Proje.YetkiliID"/>
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.ProjeDurumu" value="@Model.Proje.ProjeDurumu"/>
             </div>
         </div>
         <div class="col s12">
@@ -119,12 +124,6 @@
         <div class="col s12">
             <label for="bekleme_tarih"><b>Bekleme Alınma Tarihi :</b></label>
             <input id="bekleme_tarih" type="text" asp-for="Proje.BeklemeAlinmaTarihi" value="@Model.Proje.BeklemeAlinmaTarihi" class="datepicker">
-        </div>
-        <div class="col s12">
-            <div class="input-field">
-                <input id="ilgili_personel" type="text" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
-                <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
-            </div>
         </div>
         <div class="col s12">
             <div class="input-field">
@@ -199,9 +198,27 @@
         </div>
     </div>
 
+    <div id="modal_tamamla" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiTamamla" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="center-align">
+                    <h4>
+                        Tamamlamak istediğinizden emin misiniz?
+                    </h4>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn blue  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Tamamla </b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="center-align">
         <a href="#modal_iptal" class="waves-effect waves-light btn-small modal-trigger red    darken-1 " style="margin-top:5px"><b style="color:white"> İptal Et</b></a>
-        <a href="@Url.Action("ProjeyiTamamla", "Anasayfa",new {id = Model.Proje.ProjeID})" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
+        <a href="#modal_tamamla" class="waves-effect waves-light btn-small modal-trigger blue    darken-1 " style="margin-top:5px"><b style="color:white">Tamamlandı</b></a>
     </div>
 
 

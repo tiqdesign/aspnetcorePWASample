@@ -1,17 +1,86 @@
 ﻿@using Microsoft.VisualStudio.Web.CodeGeneration
+@using tiqpwa.Entities.Concrete
+@using tiqpwa.ExtensionMethods
 
 @{
     ViewData["Title"] = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model tiqpwa.Entities.Concrete.Proje
+@model tiqpwa.ViewModels.ProjeListeViewModel
 <script>
     $(document).ready(function () {
         $('select').formSelect();
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            i18n: {
+                months: [
+                    'Ocak',
+                    'Şubat',
+                    'Mart',
+                    'Nisan',
+                    'Mayıs',
+                    'Haziran',
+                    'Temmuz',
+                    'Ağustos',
+                    'Eylül',
+                    'Ekim',
+                    'Kasım',
+                    'Aralık'
+                ],
+                monthsShort: [
+                    'Oca',
+                    'Şub',
+                    'Mar',
+                    'Nis',
+                    'May',
+                    'Haz',
+                    'Tem',
+                    'Ağu',
+                    'Eyl',
+                    'Eki',
+                    'Kas',
+                    'Ara'
+                ],
+                weekdays: [
+                    'Pazar',
+                    'Pazartesi',
+                    'Salı',
+                    'Çarşamba',
+                    'Perşembe',
+                    'Cuma',
+                    'Cumartesi'
 
-<!--<input type="file" accept="image/x-png,image/jpeg,image/gif" />-->
+                ],
+                weekdaysShort: [
+                    'Pz',
+                    'Pzt',
+                    'Sl',
+                    'Çrş',
+                    'Prş',
+                    'Cm',
+                    'Cmt'
+                ],
+                weekdaysAbbrev: ['P', 'Pzt', 'S', 'Ç', 'Pr', 'C', 'Cts'],
+                cancel: 'Geri',
+                clear: 'Temizle',
+                done: 'Tamam'
+            },
+            firstDay: 1,
+            autoClose: true
+        });
+    });
+</script>
+
+@{
+    Kullanici kullanıcı = Context.Session.GetObject<Kullanici>("KullanıcıObjesi");
+    var kullaniciId = kullanıcı.KullaniciID;
+    var kullaniciAdSoyad = kullanıcı.KullaniciAdi + " " + kullanıcı.KullaniciSoyadi.ToUpper();
+    var kullaniciTelefon = kullanıcı.KullaniciTelefon;
+}
+
 <div class="row" style="margin-top:20px">
     <img src="~/karaman.png" style="width: 100px" />
     <a href="@Url.Action("Index", "Anasayfa")" class="waves-effect waves-light btn-small red lighten-1 secondary-content" style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Geri </b></a>
@@ -19,118 +88,86 @@
 <div class="card-title center">
     <p><b style="font-size:20px">Yeni İş Kaydı</b></p>
 </div>
-<div class="card">
+<div class="card z-depth-3">
     <div class="card-content">
         <form class="col s12" asp-action="YeniIsKaydi">
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="ProjeAdi" type="text">
+                    <input id="proje_adi" asp-for="Proje.ProjeAdi" type="text">
                     <label for="proje_adi"><b>Proje Adı : </b></label>
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="IlgiliPersonel" type="text">
-                    <label for="proje_adi"><b>Yetkili Kişi :</b></label>
+                    <input id="yetkili_id" asp-for="Proje.YetkiliID" type="hidden" value="@kullaniciId">
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="YetkiliTelefon" type="text">
-                    <label for="proje_adi"> <b>Yetkili Telefon :</b></label>
+                    <input id="yetkili_tel" asp-for="Proje.YetkiliTelefon" type="text" value="@kullaniciTelefon" />
+                    <label for="yetkili_tel"> <b>Yetkili Telefon :</b></label>
                 </div>
             </div>
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="YetkiliID" type="text">
-                    <label for="proje_adi"> <b>Yetkili ID : </b></label>
+                    <input id="lokasyon" asp-for="Proje.Lokasyon" type="text">
+                    <label for="lokasyon"> <b>Lokasyon : </b></label>
                 </div>
             </div>
-
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="Lokasyon" type="text">
-                    <label for="proje_adi"> <b>Lokasyon : </b></label>
-                </div>
-            </div>
-
-            <div class="col s12">
-                <div class="input-field">
-                    <input id="proje_adi" asp-for="ProjeTarihi" type="text">
-                    <label for="proje_adi"> <b>Tarih : </b></label>
+                    <label for="tarih"><b>Tarih :</b></label>
+                    <input id="tarih" asp-for="Proje.ProjeTarihi" type="text" class="datepicker">
                 </div>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" type="text">
-                    <label for="proje_adi"> <b>Saat :</b> </label>
+                    <select id="isin_konusu" asp-for="Proje.IsinKonusu">
+                        @foreach (var item in Model.Konular)
+                        {
+                            <option value="@item.KonuID" selected>@item.Aciklama</option>
+                        }
+                    </select>
+                    <label for="isin_konusu"><b>İşin Konusu :</b></label>
                 </div>
-            </div>
-
-            <div class="input-field col s12">
-                <select asp-for="IsinKonusu">
-                    <option value="" disabled selected>Lütfen birini seçiniz</option>
-                    <option value="1">Devreye Alma</option>
-                    <option value="2">Test</option>
-                    <option value="3">Montaj</option>
-                    <option value="4">Süpervizörlük</option>
-                    <option value="5">İşçilik</option>
-                </select>
-                <label style="margin-left:-12px">
-                    <b>İşin Konusu :</b>
-                </label>
             </div>
 
             <div class="col s12">
                 <div class="input-field">
-                    <input id="proje_adi" asp-for="IsinAciklamasi" type="text">
-                    <label for="proje_adi"> <b>İşin Açıklaması :</b></label>
+                    <textarea id="isin_aciklamasi" class="materialize-textarea" asp-for="Proje.IsinAciklamasi"></textarea>
+                    <label for="isin_aciklamasi"> <b>İşin Açıklaması :</b></label>
                 </div>
             </div>
 
-            <div class="input-field col s12">
-                <select asp-for="IsinCinsi">
-                    <option value="" disabled selected>Lütfen birini seçiniz</option>
-                    <option value="1">Ücretli</option>
-                    <option value="2">Ücretsiz</option>
-                    <option value="3">Bakım</option>
-                    <option value="4">Sözleşme Dahilinde</option>
-                </select>
-                <label style="margin-left:-12px">
-                    <b>İşin Cinsi :</b> 
-                </label>
-            </div>
-
-            <div class="input-field col s12">
-                <select multiple>
-                    <option value="" disabled>Lütfen birini seçiniz</option>
-                    <option value="1">Eyüp Çelik</option>
-                    <option value="2">Enes Zeybekoğlu</option>
-                    <option value="3">M. Ali Karaman</option>
-                    <option value="4">Mesut Karaman</option>
-                    <option value="5">Yüksel Tunç</option>
-                </select>
-                <label style="margin-left:-12px">
-                    <b>İlgili Personeller :</b>  
-                </label>
-            </div>
-
-            <div class="row" style="margin-left: 3px; margin-right:3px ">
-                <div class="file-field input-field">
-                    <div class="btn-small">
-                        <span>Fotoğraf Yükle</span>
-                        <input type="file">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path" type="text">
-                    </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <select id="isin_cinsi" asp-for="Proje.IsinCinsi">
+                        @foreach (var item in Model.Cinsler)
+                        {
+                            <option value="@item.CinsID" selected>@item.Aciklama</option>
+                        }
+                    </select>
+                    <label for="isin_cinsi"><b>İşin Cinsi :</b></label>
                 </div>
             </div>
+
+            <div class="col s12">
+                <div class="input-field">
+                    <select id="ilgili_personel" multiple asp-for="IlgiliKullanicilar">
+                        @foreach (var item in Model.Kullanicilar)
+                        {
+                        <option value="@item.KullaniciID">@{var adiSoyadi = item.KullaniciAdi + " " + item.KullaniciSoyadi.ToUpper();}@adiSoyadi</option>
+                        }
+                    </select>
+                    <label for="ilgili_personel"><b>İlgili Personel :</b></label>
+                </div>
+            </div>
+
             <div class="col s12 center-align">
-                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="giris_yap" onclick="M.toast({html: 'Kaydediliyor...'})">
+                <button class="waves-effect waves-light btn grey darken-3" style="letter-spacing: .5px" type="submit" name="kayit_ekle" onclick="M.toast({html: 'Kaydediliyor...'})">
                     <p style="color:white">Kaydet</p>
                 </button>
             </div>

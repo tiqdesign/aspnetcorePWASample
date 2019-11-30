@@ -19,22 +19,27 @@ namespace tiqpwa.Business.Concrete
 
         public List<Proje> TumProjeleriGetir(int KullaniciID)
         {
-            return _projeDataAccessLayer.GetList(p => p.YetkiliID == KullaniciID);
+            return _projeDataAccessLayer.GetList(p => p.IlgiliPersonel == KullaniciID);
         }
 
         public List<Proje> ProjeleriGetir(int KullaniciID, short projeDurumu)
         {
-            return _projeDataAccessLayer.GetList(p=> p.YetkiliID == KullaniciID && p.ProjeDurumu == projeDurumu);
+            return _projeDataAccessLayer.GetList(p=> p.IlgiliPersonel == KullaniciID && p.ProjeDurumu == projeDurumu);
         }
         //bu kısımda düzeltilmesi gereken yerler var.
-        public Proje ProjeyiGetir(int ProjeID)
+        public Proje ProjeyiGetir(Guid ID, int KullaniciID)
         {
-            return _projeDataAccessLayer.Get(p => p.ProjeID == ProjeID);
+            return _projeDataAccessLayer.Get(p => p.ID == ID && p.IlgiliPersonel == KullaniciID);
         }
 
-        public List<Proje> ProjeleriTarihIleGetir(DateTime tarih)
+        public List<Proje> IlgiliProjeleriGetir(Guid ProjeID, int KullaniciID)
         {
-            return _projeDataAccessLayer.GetList(p => p.ProjeTarihi == tarih);
+            return _projeDataAccessLayer.GetList(p => p.ProjeID == ProjeID && p.IlgiliPersonel != KullaniciID);
+        }
+
+        public List<Proje> ProjeleriTarihIleGetir(DateTime tarih,int KullaniciID)
+        {
+            return _projeDataAccessLayer.GetList(p => p.ProjeTarihi == tarih && p.IlgiliPersonel == KullaniciID);
         }
 
         public void ProjeEkle(Proje p)
@@ -51,5 +56,6 @@ namespace tiqpwa.Business.Concrete
         {
             _projeDataAccessLayer.Delete(p);
         }
+
     }
 }

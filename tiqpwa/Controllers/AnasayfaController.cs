@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using tiqpwa.Business.Abstract;
 using tiqpwa.DataAccess.Abstract;
@@ -24,13 +25,15 @@ namespace tiqpwa.Controllers
         private IProjeService _projeService;
         private IIsinKonusuService _isinKonusuService;
         private IIsinCinsiService _isinCinsiService;
+        private IKullaniciService _kullaniciService;
         public static Kullanici kullanici;
 
-        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService, IIsinCinsiService isinCinsiService)
+        public AnasayfaController(IProjeService projeService, IIsinKonusuService isinKonusuService, IIsinCinsiService isinCinsiService,IKullaniciService kullaniciService)
         {
             _projeService = projeService;
             _isinKonusuService = isinKonusuService;
             _isinCinsiService = isinCinsiService;
+            _kullaniciService = kullaniciService;
         }
 
         #region Listelerin Metodları
@@ -39,14 +42,23 @@ namespace tiqpwa.Controllers
             var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 1);
             var konular = _isinKonusuService.KonularıGetir();
             var DevamEdenListe = new List<ProjeListeViewModel>();
+            
 
             foreach (var proje in projeler)
             {
+                var YetkiliStringListe = new List<string>();
+                var liste = _projeService.IlgiliProjeleriGetir(proje.ProjeID, kullanici.KullaniciID);
+                foreach (var p in liste)
+                {
+                    var yetkili = _kullaniciService.IdyeGoreKullanici(p.IlgiliPersonel);
+                    YetkiliStringListe.Add(yetkili.KullaniciAdi+" "+ yetkili.KullaniciSoyadi);
+                }
                 var item = new ProjeListeViewModel()
                 {
                     Proje = proje,
                     KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                    Konular = konular
+                    Konular = konular,
+                    Yetkililer= YetkiliStringListe
                 };
                 DevamEdenListe.Add(item);
             }
@@ -54,15 +66,16 @@ namespace tiqpwa.Controllers
         }
 
         [HttpGet]
-        public IActionResult DevamEdenAyrinti(int id)
+        public IActionResult DevamEdenAyrinti(Guid id)
         {
-            var proje = _projeService.ProjeyiGetir(id);
+            var proje = _projeService.ProjeyiGetir(id,kullanici.KullaniciID);
             var konular = _isinKonusuService.KonularıGetir();
             var item = new ProjeListeViewModel()
             {
                 Proje = proje,
                 KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                Konular = konular
+                Konular = konular,
+                Kullanicilar = _kullaniciService.TumKullanicilariGetir()
             };
             return View(item);
         }
@@ -81,7 +94,6 @@ namespace tiqpwa.Controllers
             }
         }
 
-
         public IActionResult BeklemeListe()
         {
             var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 2);
@@ -90,11 +102,19 @@ namespace tiqpwa.Controllers
 
             foreach (var proje in projeler)
             {
+                var YetkiliStringListe = new List<string>();
+                var liste = _projeService.IlgiliProjeleriGetir(proje.ProjeID, kullanici.KullaniciID);
+                foreach (var p in liste)
+                {
+                    var yetkili = _kullaniciService.IdyeGoreKullanici(p.YetkiliID);
+                    YetkiliStringListe.Add(yetkili.KullaniciAdi + " " + yetkili.KullaniciSoyadi);
+                }
                 var item = new ProjeListeViewModel()
                 {
                     Proje = proje,
                     KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                    Konular = konular
+                    Konular = konular,
+                    Yetkililer = YetkiliStringListe
                 };
                 BeklemeListe.Add(item);
             }
@@ -102,15 +122,16 @@ namespace tiqpwa.Controllers
         }
 
         [HttpGet]
-        public IActionResult BeklemeAyrinti(int id)
+        public IActionResult BeklemeAyrinti(Guid id)
         {
-            var proje = _projeService.ProjeyiGetir(id);
+            var proje = _projeService.ProjeyiGetir(id, kullanici.KullaniciID);
             var konular = _isinKonusuService.KonularıGetir();
             var item = new ProjeListeViewModel()
             {
                 Proje = proje,
                 KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                Konular = konular
+                Konular = konular,
+                Kullanicilar = _kullaniciService.TumKullanicilariGetir()
             };
             return View(item);
         }
@@ -129,8 +150,6 @@ namespace tiqpwa.Controllers
             }
         }
 
-        
-
         public IActionResult TamamlananListe()
         {
             var projeler = _projeService.ProjeleriGetir(kullanici.KullaniciID, 3);
@@ -139,11 +158,21 @@ namespace tiqpwa.Controllers
 
             foreach (var proje in projeler)
             {
+                //Yetkililerin isimleri ve soyisimlerini tutacak liste.
+                var YetkiliStringListe = new List<string>();
+                //Projeninin yetkili kişisinin id si ile aynı no ya ait projelerin hepsini getirir.
+                var liste = _projeService.IlgiliProjeleriGetir(proje.ProjeID, kullanici.KullaniciID);
+                foreach (var p in liste)
+                {
+                    var yetkili = _kullaniciService.IdyeGoreKullanici(p.YetkiliID);
+                    YetkiliStringListe.Add(yetkili.KullaniciAdi + " " + yetkili.KullaniciSoyadi);
+                }
                 var item = new ProjeListeViewModel()
                 {
                     Proje = proje,
                     KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                    Konular = konular
+                    Konular = konular,
+                    Yetkililer = YetkiliStringListe
                 };
                 TamanlananListe.Add(item);
             }
@@ -151,15 +180,16 @@ namespace tiqpwa.Controllers
         }
 
         [HttpGet]
-        public IActionResult TamamlanmaAyrinti(int id)
+        public IActionResult TamamlanmaAyrinti(Guid id)
         {
-            var proje = _projeService.ProjeyiGetir(id);
+            var proje = _projeService.ProjeyiGetir(id, kullanici.KullaniciID);
             var konular = _isinKonusuService.KonularıGetir();
             var item = new ProjeListeViewModel()
             {
                 Proje = proje,
                 KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                Konular = konular
+                Konular = konular,
+                Kullanicilar = _kullaniciService.TumKullanicilariGetir()
             };
             return View(item);
         }
@@ -186,11 +216,19 @@ namespace tiqpwa.Controllers
 
             foreach (var proje in projeler)
             {
+                var YetkiliStringListe = new List<string>();
+                var liste = _projeService.IlgiliProjeleriGetir(proje.ProjeID, kullanici.KullaniciID);
+                foreach (var p in liste)
+                {
+                    var yetkili = _kullaniciService.IdyeGoreKullanici(p.YetkiliID);
+                    YetkiliStringListe.Add(yetkili.KullaniciAdi + " " + yetkili.KullaniciSoyadi);
+                }
                 var item = new ProjeListeViewModel()
                 {
                     Proje = proje,
                     KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                    Konular = konular
+                    Konular = konular,
+                    Yetkililer = YetkiliStringListe
                 };
                 İptalListe.Add(item);
             }
@@ -198,15 +236,16 @@ namespace tiqpwa.Controllers
         }
 
         [HttpGet]
-        public IActionResult IptalOlanAyrinti(int id)
+        public IActionResult IptalOlanAyrinti(Guid id)
         {
-            var proje = _projeService.ProjeyiGetir(id);
+            var proje = _projeService.ProjeyiGetir(id, kullanici.KullaniciID);
             var konular = _isinKonusuService.KonularıGetir();
             var item = new ProjeListeViewModel()
             {
                 Proje = proje,
                 KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
-                Konular = konular
+                Konular = konular,
+                Kullanicilar = _kullaniciService.TumKullanicilariGetir()
             };
             return View(item);
         }
@@ -225,9 +264,9 @@ namespace tiqpwa.Controllers
             }
         }
 
-        public IActionResult Rapor(int id)
+        public IActionResult Rapor(Guid id)
         {
-            var proje = _projeService.ProjeyiGetir(id);
+            var proje = _projeService.ProjeyiGetir(id, kullanici.KullaniciID);
             var konular = _isinKonusuService.KonularıGetir();
             var item = new ProjeListeViewModel()
             {
@@ -239,11 +278,11 @@ namespace tiqpwa.Controllers
             return View(item);
         }
 
-        public IActionResult ProjeyiTamamla(int id)
+        public IActionResult ProjeyiTamamla(ProjeListeViewModel p)
         {
             try
             {
-                var proje = _projeService.ProjeyiGetir(id);
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID, kullanici.KullaniciID);
                 proje.TamamlanmaTarihi = DateTime.Now;
                 proje.ProjeDurumu = 3;
                 _projeService.ProjeGuncelle(proje);
@@ -259,7 +298,7 @@ namespace tiqpwa.Controllers
         {
             try
             {
-                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID); 
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID, kullanici.KullaniciID); 
                 proje.BeklemeAlinmaTarihi = DateTime.Now;
                 proje.BeklemeSebebi = p.Proje.BeklemeSebebi;
                 proje.ProjeDurumu = 2;
@@ -276,7 +315,7 @@ namespace tiqpwa.Controllers
         {
             try
             {
-                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID);
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID, kullanici.KullaniciID);
                 proje.IptalTarihi = DateTime.Now;
                 proje.IptalSebebi = p.Proje.IptalSebebi;
                 proje.ProjeDurumu = 4;
@@ -293,7 +332,7 @@ namespace tiqpwa.Controllers
         {
             try
             {
-                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID);
+                var proje = _projeService.ProjeyiGetir(p.Proje.ProjeID, kullanici.KullaniciID);
                 proje.ProjeDurumu = 5;
                 _projeService.ProjeGuncelle(proje);
                 return RedirectToAction("Index", "Anasayfa");
@@ -336,17 +375,38 @@ namespace tiqpwa.Controllers
         [HttpGet]
         public IActionResult YeniIsKaydi()
         {
-            return View();
+            ProjeListeViewModel ykayit = new ProjeListeViewModel()
+            {
+                Konular = _isinKonusuService.KonularıGetir(),
+                Cinsler = _isinCinsiService.CinsleriGetir(),
+                Kullanicilar = _kullaniciService.TumKullanicilariGetir()
+            };
+            return View(ykayit);
         }
 
         [HttpPost]
-        public IActionResult YeniIsKaydi(Proje p){
+        public IActionResult YeniIsKaydi(ProjeListeViewModel p){
+            Guid ProjeID = Guid.NewGuid();
+            Guid Id = Guid.NewGuid();
             try
             {
-                //elle verdik kendi artmalı
-                p.ProjeID = 6;
-                p.ProjeDurumu = 1;
-                _projeService.ProjeEkle(p);
+                p.Proje.ID = Id;
+                p.Proje.ProjeDurumu = 1;
+                p.Proje.ProjeID = ProjeID;
+                p.Proje.IlgiliPersonel = p.Proje.YetkiliID;
+                _projeService.ProjeEkle(p.Proje);
+               
+                if (p.IlgiliKullanicilar.Count>0)
+                {
+                    foreach (var k in p.IlgiliKullanicilar)
+                    {
+                        Guid Id2 = Guid.NewGuid();
+                        var kullanici = _kullaniciService.IdyeGoreKullanici(k);
+                        p.Proje.ID = Id2;
+                        p.Proje.IlgiliPersonel = kullanici.KullaniciID;
+                        _projeService.ProjeEkle(p.Proje);
+                    }
+                }
                 return RedirectToAction("Index");
             }
             catch (Exception e)
@@ -365,8 +425,28 @@ namespace tiqpwa.Controllers
         {
             try
             {
-                var projeler = _projeService.ProjeleriTarihIleGetir(tarih);
-                return View(projeler);
+                var projeler = _projeService.ProjeleriTarihIleGetir(tarih,kullanici.KullaniciID);
+                var konular = _isinKonusuService.KonularıGetir();
+                var TariheGöreListe = new List<ProjeListeViewModel>();
+                foreach (var proje in projeler)
+                {
+                    var YetkiliStringListe = new List<string>();
+                    var liste = _projeService.IlgiliProjeleriGetir(proje.ProjeID, kullanici.KullaniciID);
+                    foreach (var p in liste)
+                    {
+                        var yetkili = _kullaniciService.IdyeGoreKullanici(p.YetkiliID);
+                        YetkiliStringListe.Add(yetkili.KullaniciAdi + " " + yetkili.KullaniciSoyadi);
+                    }
+                    var item = new ProjeListeViewModel()
+                    {
+                        Proje = proje,
+                        KonuString = _isinKonusuService.KonuGetir(proje.IsinKonusu).Aciklama,
+                        Konular = konular,
+                        Yetkililer = YetkiliStringListe
+                    };
+                    TariheGöreListe.Add(item);
+                }
+                return View(TariheGöreListe);
             }
             catch (Exception e)
             {
@@ -374,32 +454,6 @@ namespace tiqpwa.Controllers
             }
             
         }
-
-        //burası suan calısmıyor
-        //public ProjeListeViewModel KonuyuDegistir(Proje p)
-        //{
-        //    var plv = new ProjeListeViewModel()
-        //    {
-        //        ProjeTarihi = p.ProjeTarihi,
-        //        ProjeDurumu = p.ProjeDurumu,
-        //        ProjeAdi = p.ProjeAdi,
-        //        ProjeID = p.ProjeID,
-        //        ProjeNot = p.ProjeNot,
-        //        IlgiliPersonel = p.IlgiliPersonel,
-        //        IsinKonusu = _isinKonusuService.KonuGetir(p.IsinKonusu).Aciklama,
-        //        IsinAciklamasi = p.IsinAciklamasi,
-        //        TamamlanmaTarihi = p.TamamlanmaTarihi,
-        //        YetkiliID = p.YetkiliID,
-        //        YetkiliTelefon = p.YetkiliTelefon,
-        //        Lokasyon = p.Lokasyon,
-        //        IptalTarihi = p.IptalTarihi,
-        //        BeklemeAlinmaTarihi = p.BeklemeAlinmaTarihi,
-        //        BeklemeSebebi = p.BeklemeSebebi,
-        //        IlaveKullanilanUrun = p.IlaveKullanilanUrun,
-        //        IptalSebebi = p.IptalSebebi
-        //    };
-        //    return plv;
-        //}
 
     }
 }

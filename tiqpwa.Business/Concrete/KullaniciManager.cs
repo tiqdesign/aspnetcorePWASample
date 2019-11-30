@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using tiqpwa.Business.Abstract;
 using tiqpwa.DataAccess.Abstract;
@@ -20,6 +21,11 @@ namespace tiqpwa.Business.Concrete
         public List<Kullanici> TumKullanicilariGetir()
         {
             return _kullaniciDataAccessLayer.GetList();
+        }
+
+        public Kullanici IdyeGoreKullanici(int ID)
+        {
+            return _kullaniciDataAccessLayer.Get(k=> k.KullaniciID == ID);
         }
 
         public Kullanici KullaniciGetir(string username, string password)

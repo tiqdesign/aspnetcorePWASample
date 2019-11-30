@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using tiqpwa.Core.Entities;
 
@@ -7,7 +8,9 @@ namespace tiqpwa.Entities.Concrete
 {
     public class Proje : IEntity
     {
-        public int ProjeID { get; set; }
+        [Key]
+        public Guid ID { get; set; }
+        public Guid ProjeID { get; set; }
         public string ProjeAdi { get; set; }
         public int YetkiliID { get; set; }
         public string YetkiliTelefon { get; set; }
@@ -16,7 +19,7 @@ namespace tiqpwa.Entities.Concrete
         public short? IsinKonusu { get; set; }
         public string IsinAciklamasi { get; set; }
         public short IsinCinsi { get; set; }
-        public string IlgiliPersonel { get; set; }
+        public int IlgiliPersonel { get; set; }
         public DateTime? TamamlanmaTarihi { get; set; }
         public DateTime? IptalTarihi { get; set; }
         public DateTime? BeklemeAlinmaTarihi { get; set; }

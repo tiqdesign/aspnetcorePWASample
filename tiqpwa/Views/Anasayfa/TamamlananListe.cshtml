@@ -26,7 +26,11 @@
                         <p><b style="color: red"> Tarih : </b><b>@item.Proje.ProjeTarihi </b></p>
                         <p><b style="color: red"> Konu : </b><b>@item.KonuString </b></p>
                         <p><b style="color:red">  Tamamlanma Tarihi :</b><b>@item.Proje.TamamlanmaTarihi</b></p>
-                        <p><b style="color: red"> İlgili Personel : </b><b>@item.Proje.IlgiliPersonel</b></p>
+                        <p><b style="color: red"> İlgili Personel : </b><b>@foreach (var kullanici in item.Yetkililer)
+                                                                           {
+                                                                               @kullanici;
+                                                                               <br/>
+                                                                           }</b></p>
                     </a>
                 </div>
             }

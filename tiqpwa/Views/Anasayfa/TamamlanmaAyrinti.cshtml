@@ -108,22 +108,27 @@
     <form class="col s12" asp-action="TamamlanmaAyrinti" asp-validation-summary="all" style="border-spacing: -50px -50px;">
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi" />
+                <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.YetkiliID" value="@Model.Proje.YetkiliID" />
+                <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi"/>
             </div>
         </div>
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.ProjeDurumu" value="@Model.Proje.ProjeDurumu" />
+                <input type="hidden" asp-for="Proje.YetkiliID" value="@Model.Proje.YetkiliID"/>
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.ProjeDurumu" value="@Model.Proje.ProjeDurumu"/>
             </div>
         </div>
         <div class="col s12">
@@ -140,12 +145,7 @@
             <label for="tamamlanma_tarih"><b>Tamamlanma Tarihi :</b></label>
             <input id="tamamlanma_tarih" type="text" value="@Model.Proje.TamamlanmaTarihi" asp-for="Proje.TamamlanmaTarihi" class="datepicker">
         </div>
-        <div class="col s12">
-            <div class="input-field">
-                <input id="ilgili_personel" type="text" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
-                <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
-            </div>
-        </div>
+       
         <div class="col s12">
             <div class="input-field">
                 <input id="yetkili_tel" type="text" asp-for="Proje.YetkiliTelefon" value="@Model.Proje.YetkiliTelefon">

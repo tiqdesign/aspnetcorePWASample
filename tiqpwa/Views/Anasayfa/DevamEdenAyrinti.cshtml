@@ -87,7 +87,13 @@
         <p><b> Bilgileri Güncelle </b></p>
     </div>
 
-    <form class="col s12" asp-action="DevamEdenAyrinti" asp-validation-summary="all" style="border-spacing:-50px -50px;">
+    <form class="col s12" asp-action="DevamEdenAyrinti" asp-validation-summary="all" style="border-spacing: -50px -50px;">
+    
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID" />
+            </div>
+        </div>
         <div>
             <div class="input-field">
                 <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
@@ -118,12 +124,6 @@
         <div class="col s12">
             <label for="tarih"><b>Proje Tarihi :</b></label>
             <input id="tarih" type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
-        </div>
-        <div class="col s12">
-            <div class="input-field">
-                <input id="ilgili_personel" type="text" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel">
-                <label for="ilgili_personel"> <b>Yetkili Kişi :</b></label>
-            </div>
         </div>
         <div class="col s12">
             <div class="input-field">
@@ -168,6 +168,7 @@
                 <label for="kullanilan_urun"> <b>İlave Kullanılan Ürünler :</b></label>
             </div>
         </div>
+     
         <div class="center-align">
             <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>
@@ -206,14 +207,31 @@
                     <button class="waves-effect waves-light btn yellow  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Beklemeye Alınıyor...' })"><b style="color: white"> Beklemeye Al</b></button>
                 </div>
             </form>
+        </div>
+    </div>
 
+    <div id="modal_tamamla" class="modal">
+        <div class="modal-content">
+            <form asp-action="ProjeyiTamamla" method="get" asp-validation-summary="all">
+                <div class="input-field">
+                    <input type="hidden" asp-for="Proje.ProjeID" value="@Model.Proje.ProjeID" />
+                </div>
+                <div class="center-align">
+                    <h4>
+                        Tamamlamak istediğinizden emin misiniz?
+                    </h4>
+                </div>
+                <div class="center-align">
+                    <button class="waves-effect waves-light btn blue  darken-1" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Tamamla </b></button>
+                </div>
+            </form>
         </div>
     </div>
 
     <div class="center-align">
         <a href="#modal_iptal" class="waves-effect waves-light btn-small modal-trigger red  darken-1 " style="margin-top:5px"><b style="color:white"> İptal Et</b></a>
         <a href="#modal_bekleme" class="waves-effect waves-light btn-small modal-trigger  yellow darken-1 " style="margin-top:5px"><b style="color:white"> Beklemeye Al </b></a>
-        <a href="@Url.Action("ProjeyiTamamla", "Anasayfa", new {id = @Model.Proje.ProjeID})" class="waves-effect waves-light btn-small blue   darken-1 " style="margin-top:5px" onclick="M.toast({html: 'Sayfa Yükleniyor...'})"><b style="color:white"> Tamamlandı </b></a>
+        <a href="#modal_tamamla" class="waves-effect waves-light btn-small modal-trigger blue    darken-1 " style="margin-top:5px"><b style="color:white">Tamamlandı</b></a>
     </div>
 
 
