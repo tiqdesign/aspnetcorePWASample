@@ -18,59 +18,67 @@
 
             <tbody>
             <tr>
-                <td>Proje Adı </td>
+                <td><b>Proje Adı </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.ProjeAdi</td>
+                <td><b>@Model.Proje.ProjeAdi</b></td>
             </tr>
             <tr>
-                <td>Yetkili Adı </td>
+                <td><b>Yetkili Adı </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.IlgiliPersonel</td>
+                <td><b>@Model.YetkiliAdiSoyadi</b></td>
             </tr>
             <tr>
-                <td>Yetkili Telefon </td>
+                <td><b>Yetkili Telefon </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.YetkiliTelefon</td>
+                <td><b>@Model.Proje.YetkiliTelefon</b></td>
             </tr>
             <tr>
-                <td>Lokasyon </td>
+                <td><b>Lokasyon </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.Lokasyon</td>
+                <td><b>@Model.Proje.Lokasyon</b></td>
             </tr>
             <tr>
-                <td>İşe Başlama Tarihi </td>
+                <td><b>İşe Başlama Tarihi </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.ProjeTarihi</td>
+                <td><b>@Model.Proje.ProjeTarihi</b></td>
             </tr>
             <tr>
-                <td>Tamamlanma Tarihi </td>
+                <td><b>Tamamlanma Tarihi </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.TamamlanmaTarihi</td>
+                <td><b>@Model.Proje.TamamlanmaTarihi</b></td>
             </tr>
             <tr>
-                <td>İşin Cinsi </td>
+                <td><b>İşin Cinsi </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.IsinCinsiString</td>
+                <td><b>@Model.IsinCinsiString</b></td>
             </tr>
             <tr>
-                <td>İşin Konusu </td>
+                <td><b>İşin Konusu </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.KonuString</td>
+                <td><b>@Model.KonuString</b></td>
             </tr>
             <tr>
-                <td>Yapılan İş Notları </td>
+                <td><b>Yapılan İşin Notları</b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.ProjeNot</td>
+                <td><b>@Model.Proje.ProjeNot</b></td>>
             </tr>
             <tr>
-                <td>İlave Kullanılan Ürün </td>
+                <td><b>İlave Kullanılan Ürün </b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.IlaveKullanilanUrun</td>
+                <td><b>@Model.Proje.IlaveKullanilanUrun</b></td>
             </tr>
             <tr>
-                <td>İlgili Personeller </td>
+                <td><b>İlgili Personeller</b></td>
                 <td><span class="large material-icons">more_horiz</span></td>
-                <td>@Model.Proje.IlgiliPersonel</td>
+                <td>
+                    <b>
+                        @foreach (var kullanici in Model.Yetkililer)
+                        {
+                            @kullanici
+                            ;
+                            <br/>
+                        }
+                    </b></td>
             </tr>
             </tbody>
         </table>

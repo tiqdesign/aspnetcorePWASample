@@ -88,10 +88,15 @@
     </div>
 
     <form class="col s12" asp-action="DevamEdenAyrinti" asp-validation-summary="all" style="border-spacing: -50px -50px;">
-    
+
         <div>
             <div class="input-field">
                 <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel" />
             </div>
         </div>
         <div>
@@ -102,6 +107,11 @@
         <div>
             <div class="input-field">
                 <input type="hidden" asp-for="Proje.IsinCinsi" value="@Model.Proje.IsinCinsi" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.IsinAciklamasi" value="@Model.Proje.IsinAciklamasi" />
             </div>
         </div>
         <div>
@@ -124,6 +134,12 @@
         <div class="col s12">
             <label for="tarih"><b>Proje Tarihi :</b></label>
             <input id="tarih" type="text" asp-for="Proje.ProjeTarihi" value="@Model.Proje.ProjeTarihi" class="datepicker">
+        </div>
+        <div class="col s12">
+            <div class="input-field">
+                <input id="yetkili_ad" type="text" asp-for="YetkiliAdiSoyadi" value="@Model.YetkiliAdiSoyadi">
+                <label for="yetkili_ad"> <b>Yetkili Adı :</b></label>
+            </div>
         </div>
         <div class="col s12">
             <div class="input-field">
@@ -168,7 +184,7 @@
                 <label for="kullanilan_urun"> <b>İlave Kullanılan Ürünler :</b></label>
             </div>
         </div>
-     
+
         <div class="center-align">
             <button class="waves-effect waves-light btn-small green  darken-1" type="submit" style="margin-top: 5px" onclick="M.toast({ html: 'Kaydediliyor...' })"><b style="color: white"> Kaydet </b></button>
         </div>

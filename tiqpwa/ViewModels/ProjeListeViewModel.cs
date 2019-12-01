@@ -16,5 +16,6 @@ namespace tiqpwa.ViewModels
         public List<Kullanici> Kullanicilar { get; set; }
         public List<int> IlgiliKullanicilar { get; set; }
         public List<string> Yetkililer { get; set; }
+        public string YetkiliAdiSoyadi { get; set; }
     }
 }

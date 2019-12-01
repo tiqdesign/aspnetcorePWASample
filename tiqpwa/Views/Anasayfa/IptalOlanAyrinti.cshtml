@@ -88,7 +88,17 @@
     <form class="col s12" asp-action="IptalOlanAyrinti" asp-validation-summary="all" style="border-spacing:-50px -50px;">
         <div>
             <div class="input-field">
-                <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID"/>
+                <input type="hidden" asp-for="Proje.ID" value="@Model.Proje.ID" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.IlgiliPersonel" value="@Model.Proje.IlgiliPersonel" />
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input type="hidden" asp-for="Proje.IsinAciklamasi" value="@Model.Proje.IsinAciklamasi" />
             </div>
         </div>
         <div>
@@ -125,7 +135,13 @@
             <label for="iptal_tarih"><b>İptal Tarihi :</b></label>
             <input id="iptal_tarih" type="text" asp-for="Proje.IptalTarihi" value="@Model.Proje.IptalTarihi" class="datepicker">
         </div>
-        
+        <div class="col s12">
+            <div class="input-field">
+                <input id="yetkili_ad" type="text" asp-for="YetkiliAdiSoyadi" value="@Model.YetkiliAdiSoyadi">
+                <label for="yetkili_ad"> <b>Yetkili Adı :</b></label>
+            </div>
+        </div>
+
         <div class="col s12">
             <div class="input-field">
                 <input id="yetkili_tel" asp-for="Proje.YetkiliTelefon" type="text" value="@Model.Proje.YetkiliTelefon">

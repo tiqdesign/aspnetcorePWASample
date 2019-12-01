@@ -22,6 +22,11 @@ namespace tiqpwa.Business.Concrete
             return _projeDataAccessLayer.GetList(p => p.IlgiliPersonel == KullaniciID);
         }
 
+        public List<Proje> ProjeIDyeGoreGetir(Guid ProjeID)
+        {
+            return _projeDataAccessLayer.GetList(p => p.ProjeID == ProjeID);
+        }
+
         public List<Proje> ProjeleriGetir(int KullaniciID, short projeDurumu)
         {
             return _projeDataAccessLayer.GetList(p=> p.IlgiliPersonel == KullaniciID && p.ProjeDurumu == projeDurumu);
